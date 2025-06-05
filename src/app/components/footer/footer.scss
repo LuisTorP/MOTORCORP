@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
+  background-color: var(--grey-500);
+  border-top: 10px solid var(--red-400);
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+  &__routes {
+    display: flex;
+    gap: 203px;
+    a {
+      color: var(--grey-50)
+    }
+  }
+}
