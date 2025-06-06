@@ -1,0 +1,22 @@
+<div class="mc-container page">
+  <div class="header">
+    <div class="header__title">
+      OBTÉN TU MOTO PROPIA Y DILE ADIÓS AL TRANSPORTE PÚBLICO
+    </div>
+    <div class="header__subtitle">Elige entre nuestros diversos modelos</div>
+  </div>
+  <div class="search">
+    <input
+      #searchInput
+      type="text"
+      placeholder="Buscar Productos"
+      [value]="search|| ''"
+      (input)="onSearchChange(searchInput.value)"
+    />
+  </div>
+  <div class="list">
+    @for (product of products(); track product.id) {
+    <card-product [product]="product" />
+    }
+  </div>
+</div>
