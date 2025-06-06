@@ -1,0 +1,56 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__banner {
+    width: 100vw;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      &__item {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+
+        & iframe {
+          width: 100%;
+          max-width: 100%;
+          border-radius: 12px;
+          border: 0;
+        }
+      }
+    }
+  }
+  h3 {
+    color: #000000;
+    font-weight: 600;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--secondary-color);
+  }
+  ul {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 1128px) {
+  .about__information {
+    padding: 12px;
+  }
+}
