@@ -4,12 +4,12 @@ export const productRoutes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./product-list/product-list').then((c) => c.ProductList),
+      import('./pages/product-list/product-list').then((c) => c.ProductList),
   },
   {
-    path: ':courseId',
+    path: ':productId',
     loadComponent: () =>
-      import('./product-description/product-description').then(
+      import('./pages/product-description/product-description').then(
         (c) => c.ProductDescription
       ),
   },

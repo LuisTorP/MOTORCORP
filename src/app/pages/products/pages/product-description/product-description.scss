@@ -1,0 +1,86 @@
+.product {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  &__image {
+    // width: 100%;
+    flex: 1;
+    img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: contain;
+    }
+  }
+  &__body {
+    // width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      &__name {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #000000;
+      }
+      &__description {
+        font-weight: 400;
+        font-size: 1rem;
+        color: #4e4e4e;
+      }
+    }
+    &__extra {
+      display: flex;
+      gap: 1.5rem;
+      &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        &__model,
+        &__stock {
+          font-weight: 400;
+          font-size: 1rem;
+          color: #ea5b0c;
+        }
+      }
+      &__price {
+        font-weight: 700;
+        font-size: 2rem;
+        color: #ea5b0c;
+      }
+    }
+    &__wsp {
+      display: flex;
+      &__button {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        gap: 0.75rem;
+        background: #ffffff;
+        border: 1px solid #999999;
+        border-radius: 0.5rem;
+        transition: background ease 0.2s;
+        cursor: pointer;
+        &:hover {
+          background: #e2e2e2;
+        }
+      }
+    }
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+}

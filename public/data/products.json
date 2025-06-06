@@ -1,0 +1,228 @@
+[
+  {
+    "nombre": "Motocicleta Honda XR150L",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/212_1.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/212_1.png",
+    "marca": "Honda",
+    "descripcion": "Motocicleta doble propósito, ideal para ciudad y caminos rurales.",
+    "modelo": "XR150L",
+    "precio": 9500.0,
+    "galeria": [
+      "https://example.com/img/honda-xr150l-1.jpg",
+      "https://example.com/img/honda-xr150l-2.jpg"
+    ],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Yamaha FZ25",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/bajaj-dominar-400-20-2022-verde-68d7b6.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/bajaj-dominar-400-20-2022-verde-68d7b6.png",
+    "marca": "Yamaha",
+    "descripcion": "Motor de 250cc con gran desempeño en ciudad y carretera.",
+    "modelo": "FZ25",
+    "precio": 12000.0,
+    "galeria": ["https://example.com/img/yamaha-fz25-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Bajaj Pulsar NS200",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/bajaj-pulsar-ns200-fi-abs-nuevo-diseno-2022-negro-5c285c.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/bajaj-pulsar-ns200-fi-abs-nuevo-diseno-2022-negro-5c285c.png",
+    "marca": "Bajaj",
+    "descripcion": "Estilo deportivo, refrigeración líquida y excelente maniobrabilidad.",
+    "modelo": "NS200",
+    "precio": 10990.0,
+    "galeria": [
+      "https://example.com/img/pulsar-ns200-1.jpg",
+      "https://example.com/img/pulsar-ns200-2.jpg"
+    ],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Suzuki Gixxer SF 250",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/cf-moto-nk250-2022-negro-71ce6e-1.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/cf-moto-nk250-2022-negro-71ce6e-1.png",
+    "marca": "Suzuki",
+    "descripcion": "Diseño aerodinámico con excelente eficiencia de combustible.",
+    "modelo": "Gixxer SF 250",
+    "precio": 14500.0,
+    "galeria": ["https://example.com/img/gixxer-250-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta KTM Duke 200",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ChatGPT+Image+5+jun+2025%2C+10_49_22+p.m..png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ChatGPT+Image+5+jun+2025%2C+10_49_22+p.m..png",
+    "marca": "KTM",
+    "descripcion": "Estética agresiva y motor potente para una conducción emocionante.",
+    "modelo": "Duke 200",
+    "precio": 17990.0,
+    "galeria": ["https://example.com/img/ktm-duke-200-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta TVS Apache RTR 160",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/descarga.jpeg",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/descarga.jpeg",
+    "marca": "TVS",
+    "descripcion": "Diseño aerodinámico y tecnología de carrera para el día a día.",
+    "modelo": "Apache RTR 160",
+    "precio": 8200.0,
+    "galeria": ["https://example.com/img/apache-160-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Honda CB190R",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/FZ25-WEB-AZUL.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/FZ25-WEB-AZUL.png",
+    "marca": "Honda",
+    "descripcion": "Deportiva y confiable, ideal para el uso urbano intensivo.",
+    "modelo": "CB190R",
+    "precio": 13200.0,
+    "galeria": ["https://example.com/img/honda-cb190r-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Yamaha MT-03",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/kpr.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/kpr.png",
+    "marca": "Yamaha",
+    "descripcion": "Motocicleta naked con una excelente relación peso/potencia.",
+    "modelo": "MT-03",
+    "precio": 21500.0,
+    "galeria": ["https://example.com/img/yamaha-mt03-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Bajaj Dominar 400",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/MotoSlide_CB190R20Hornet.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/MotoSlide_CB190R20Hornet.png",
+    "marca": "Bajaj",
+    "descripcion": "Touring de alto cilindraje y excelente estabilidad.",
+    "modelo": "Dominar 400",
+    "precio": 18990.0,
+    "galeria": ["https://example.com/img/dominar-400-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Hero Xpulse 200",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ng-gris2.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ng-gris2.png",
+    "marca": "Hero",
+    "descripcion": "Diseñada para la aventura con capacidades off-road.",
+    "modelo": "Xpulse 200",
+    "precio": 10500.0,
+    "galeria": ["https://example.com/img/xpulse-200-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Zontes ZT310-T",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/NK150-RED-2023-45_.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/NK150-RED-2023-45_.png",
+    "marca": "Zontes",
+    "descripcion": "Motocicleta de turismo con equipamiento de alta gama.",
+    "modelo": "ZT310-T",
+    "precio": 23900.0,
+    "galeria": ["https://example.com/img/zontes-zt310-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta CF Moto 250NK",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/RED-1604V-Flat-AZUL-1024x709.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/RED-1604V-Flat-AZUL-1024x709.png",
+    "marca": "CF Moto",
+    "descripcion": "Diseño moderno, buen desempeño y eficiencia.",
+    "modelo": "250NK",
+    "precio": 15400.0,
+    "galeria": ["https://example.com/img/cfmoto-250nk-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Italika DM200",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/rtm-200ks-2021-rojo-10554d.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/rtm-200ks-2021-rojo-10554d.png",
+    "marca": "Italika",
+    "descripcion": "Motocicleta doble propósito, ideal para ciudad y campo.",
+    "modelo": "DM200",
+    "precio": 7800.0,
+    "galeria": ["https://example.com/img/italika-dm200-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Lifan KP200",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ssenda-dm-200-2021-rojo.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/ssenda-dm-200-2021-rojo.png",
+    "marca": "Lifan",
+    "descripcion": "Estilo naked con motor de buen rendimiento.",
+    "modelo": "KP200",
+    "precio": 8900.0,
+    "galeria": ["https://example.com/img/lifan-kp200-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Haojue NK150",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/X-TERRA-250b.jpg",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/X-TERRA-250b.jpg",
+    "marca": "Haojue",
+    "descripcion": "Confiable, económica y con buen equipamiento.",
+    "modelo": "NK150",
+    "precio": 7100.0,
+    "galeria": ["https://example.com/img/haojue-nk150-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta RATO RTM150GY-3",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/xpulse_negro_rojo_slider_FI.png",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/xpulse_negro_rojo_slider_FI.png",
+    "marca": "RATO",
+    "descripcion": "Motocicleta enduro de bajo costo y buen desempeño.",
+    "modelo": "RTM150GY-3",
+    "precio": 6500.0,
+    "galeria": ["https://example.com/img/rato-rtm150gy3-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Vento Terra 250",
+    "portada": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/honda-xr-150.jpeg",
+    "miniatura": "https://tesis-files.s3.us-east-2.amazonaws.com/motorcorp/honda-xr-150.jpeg",
+    "marca": "Vento",
+    "descripcion": "Buena opción para viajes largos y caminos mixtos.",
+    "modelo": "Terra 250",
+    "precio": 9900.0,
+    "galeria": ["https://example.com/img/vento-terra250-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Benelli TNT 135",
+    "portada": "https://example.com/img/benelli-tnt135-portada.jpg",
+    "miniatura": "https://example.com/img/benelli-tnt135-mini.jpg",
+    "marca": "Benelli",
+    "descripcion": "Pequeña, divertida y con mucha personalidad.",
+    "modelo": "TNT 135",
+    "precio": 8600.0,
+    "galeria": ["https://example.com/img/benelli-tnt135-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Loncin CR5 250",
+    "portada": "https://example.com/img/loncin-cr5250-portada.jpg",
+    "miniatura": "https://example.com/img/loncin-cr5250-mini.jpg",
+    "marca": "Loncin",
+    "descripcion": "Versátil, cómoda y con un diseño atractivo.",
+    "modelo": "CR5 250",
+    "precio": 9400.0,
+    "galeria": ["https://example.com/img/loncin-cr5250-1.jpg"],
+    "tipo": "moto"
+  },
+  {
+    "nombre": "Motocicleta Apache RTR 200 4V",
+    "portada": "https://example.com/img/apache-2004v-portada.jpg",
+    "miniatura": "https://example.com/img/apache-2004v-mini.jpg",
+    "marca": "TVS",
+    "descripcion": "Potente y refinada, con conectividad Bluetooth.",
+    "modelo": "RTR 200 4V",
+    "precio": 11400.0,
+    "galeria": ["https://example.com/img/apache-2004v-1.jpg"],
+    "tipo": "moto"
+  }
+]

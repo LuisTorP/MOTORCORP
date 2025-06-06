@@ -7,7 +7,7 @@ import { Footer } from './components/footer/footer';
   selector: 'app-root',
   imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected title = 'motorcorp-client';
