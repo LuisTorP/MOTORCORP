@@ -69,14 +69,14 @@ h6 {
   margin-right: auto;
 }
 
-.list {
+.list__products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .list {
+  .list__products {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
   }

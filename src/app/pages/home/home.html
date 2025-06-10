@@ -10,7 +10,7 @@
     <p>Elige entre nuestros diversos modelos</p>
   </div>
 
-  <div class="list container-max">
+  <div class="list__products">
     @for (product of randomProducts(); track $index) {
     <card-product [product]="product" />
     }
@@ -33,7 +33,7 @@
     <p>Somos distribuidores autorizados de estas marcas</p>
   </div>
 
-  <div class="list container-max">
+  <div class="list__products mc-container">
     @for (brand of brands; track $index) {
     <card-brand [brand]="brand" />
     }
