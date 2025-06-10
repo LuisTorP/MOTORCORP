@@ -17,12 +17,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     provideFirebaseApp(() =>
       initializeApp({
-        projectId: 'motocorp-11815',
-        appId: '1:583109970694:web:5cb3e085822c3c62ad6c87',
-        storageBucket: 'motocorp-11815.firebasestorage.app',
-        apiKey: 'AIzaSyCVE4Qvhj39PhdMDwUMYYYD2aga54ZMl6s',
-        authDomain: 'motocorp-11815.firebaseapp.com',
-        messagingSenderId: '583109970694',
+        projectId: 'motorcorp-55b78',
+        appId: '1:310854174661:web:34c3d494d535b5bfc66dac',
+        storageBucket: 'motorcorp-55b78.firebasestorage.app',
+        apiKey: 'AIzaSyA-MKzjir3VXKBlA-1GfOTMlCQ0H7LYlRU',
+        authDomain: 'motorcorp-55b78.firebaseapp.com',
+        messagingSenderId: '310854174661',
       })
     ),
     provideFirestore(() => getFirestore()),
