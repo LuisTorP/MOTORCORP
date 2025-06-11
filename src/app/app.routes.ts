@@ -6,6 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home').then((c) => c.Home),
   },
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('./pages/auth/auth.routes').then((r) => r.authRoutes),
+  },
+  {
     path: 'products',
     loadChildren: () =>
       import('./pages/products/products.routes').then((r) => r.productRoutes),

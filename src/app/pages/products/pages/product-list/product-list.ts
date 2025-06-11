@@ -28,6 +28,7 @@ export class ProductList implements OnInit, OnChanges {
   products = this.productService.products;
 
   ngOnInit(): void {
+    // this.productService.loadSeed();
     this.productService.getProducts(this.type).then(() => {
       if (this.search) {
         this.productService.filterProducts(this.search);

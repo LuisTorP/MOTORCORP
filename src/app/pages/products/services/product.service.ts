@@ -1,19 +1,20 @@
 import { inject, Injectable, signal } from '@angular/core';
 import {
-  getDocs,
   collection,
+  CollectionReference,
   doc,
   getDoc,
-  setDoc,
-  CollectionReference,
+  getDocs,
   query,
-  where,
   Query,
+  serverTimestamp,
+  setDoc,
+  where,
 } from 'firebase/firestore';
-import { Product, ProductType } from '../intefaces/product.interface';
+import { DocumentData } from '@angular/fire/compat/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
-import { DocumentData } from '@angular/fire/compat/firestore';
+import { Product, ProductType } from '../intefaces/product.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -91,6 +92,9 @@ export class ProductService {
           precio: product.precio,
           galeria: product.galeria,
           tipo: product.tipo,
+          stock: product.stock,
+          created_at: serverTimestamp(),
+          updated_at: serverTimestamp(),
         });
       }
     });

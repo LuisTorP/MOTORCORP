@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Ana",
+    "apellido": "Pérez",
+    "email": "ana.admin@example.com",
+    "password": "$2a$10$abc123encriptadoadmin",
+    "telefono": "987654321",
+    "direccion": "Av. Central 123, Lima",
+    "rol": "admin",
+    "estado": "activo"
+  },
+  {
+    "id": "user_comprador_001",
+    "nombre": "Luis",
+    "apellido": "Gómez",
+    "email": "luis.compra@example.com",
+    "password": "$2a$10$xyz789encriptadocomprador",
+    "telefono": "912345678",
+    "direccion": "Calle Falsa 456, Arequipa",
+    "rol": "comprador",
+    "estado": "activo"
+  }
+]

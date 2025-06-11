@@ -8,4 +8,9 @@ export const APP_ROUTES = {
     repuesto: '/products/repuesto',
     detail: (productId: string) => `/products/${productId}`,
   },
+  auth: {
+    root: '/auth',
+    login: '/auth/login',
+    register: '/auth/register',
+  },
 };
