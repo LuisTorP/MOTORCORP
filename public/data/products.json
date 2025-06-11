@@ -11,7 +11,8 @@
       "https://example.com/img/honda-xr150l-1.jpg",
       "https://example.com/img/honda-xr150l-2.jpg"
     ],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Yamaha FZ25",
@@ -22,7 +23,8 @@
     "modelo": "FZ25",
     "precio": 12000.0,
     "galeria": ["https://example.com/img/yamaha-fz25-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Bajaj Pulsar NS200",
@@ -36,7 +38,8 @@
       "https://example.com/img/pulsar-ns200-1.jpg",
       "https://example.com/img/pulsar-ns200-2.jpg"
     ],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Suzuki Gixxer SF 250",
@@ -47,7 +50,8 @@
     "modelo": "Gixxer SF 250",
     "precio": 14500.0,
     "galeria": ["https://example.com/img/gixxer-250-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta KTM Duke 200",
@@ -58,7 +62,8 @@
     "modelo": "Duke 200",
     "precio": 17990.0,
     "galeria": ["https://example.com/img/ktm-duke-200-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta TVS Apache RTR 160",
@@ -69,7 +74,8 @@
     "modelo": "Apache RTR 160",
     "precio": 8200.0,
     "galeria": ["https://example.com/img/apache-160-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Honda CB190R",
@@ -80,7 +86,8 @@
     "modelo": "CB190R",
     "precio": 13200.0,
     "galeria": ["https://example.com/img/honda-cb190r-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Yamaha MT-03",
@@ -91,7 +98,8 @@
     "modelo": "MT-03",
     "precio": 21500.0,
     "galeria": ["https://example.com/img/yamaha-mt03-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Bajaj Dominar 400",
@@ -102,7 +110,8 @@
     "modelo": "Dominar 400",
     "precio": 18990.0,
     "galeria": ["https://example.com/img/dominar-400-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Hero Xpulse 200",
@@ -113,7 +122,8 @@
     "modelo": "Xpulse 200",
     "precio": 10500.0,
     "galeria": ["https://example.com/img/xpulse-200-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Zontes ZT310-T",
@@ -124,7 +134,8 @@
     "modelo": "ZT310-T",
     "precio": 23900.0,
     "galeria": ["https://example.com/img/zontes-zt310-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta CF Moto 250NK",
@@ -135,7 +146,8 @@
     "modelo": "250NK",
     "precio": 15400.0,
     "galeria": ["https://example.com/img/cfmoto-250nk-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Italika DM200",
@@ -146,7 +158,8 @@
     "modelo": "DM200",
     "precio": 7800.0,
     "galeria": ["https://example.com/img/italika-dm200-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Lifan KP200",
@@ -157,7 +170,8 @@
     "modelo": "KP200",
     "precio": 8900.0,
     "galeria": ["https://example.com/img/lifan-kp200-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Haojue NK150",
@@ -168,7 +182,8 @@
     "modelo": "NK150",
     "precio": 7100.0,
     "galeria": ["https://example.com/img/haojue-nk150-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta RATO RTM150GY-3",
@@ -179,7 +194,8 @@
     "modelo": "RTM150GY-3",
     "precio": 6500.0,
     "galeria": ["https://example.com/img/rato-rtm150gy3-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Vento Terra 250",
@@ -190,7 +206,8 @@
     "modelo": "Terra 250",
     "precio": 9900.0,
     "galeria": ["https://example.com/img/vento-terra250-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Benelli TNT 135",
@@ -201,7 +218,8 @@
     "modelo": "TNT 135",
     "precio": 8600.0,
     "galeria": ["https://example.com/img/benelli-tnt135-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Loncin CR5 250",
@@ -212,7 +230,8 @@
     "modelo": "CR5 250",
     "precio": 9400.0,
     "galeria": ["https://example.com/img/loncin-cr5250-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
   },
   {
     "nombre": "Motocicleta Apache RTR 200 4V",
@@ -223,6 +242,490 @@
     "modelo": "RTR 200 4V",
     "precio": 11400.0,
     "galeria": ["https://example.com/img/apache-2004v-1.jpg"],
-    "tipo": "moto"
+    "tipo": "moto",
+    "stock": 9
+  },
+  {
+    "nombre": "Casco Integral LS2 FF320",
+    "portada": "https://example.com/img/casco-ls2-ff320-portada.jpg",
+    "miniatura": "https://example.com/img/casco-ls2-ff320-mini.jpg",
+    "marca": "LS2",
+    "descripcion": "Casco integral con visor solar retráctil y excelente ventilación.",
+    "modelo": "FF320",
+    "precio": 450.0,
+    "galeria": ["https://example.com/img/casco-ls2-ff320-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 15
+  },
+  {
+    "nombre": "Guantes Alpinestars SP-8",
+    "portada": "https://example.com/img/guantes-sp8-portada.jpg",
+    "miniatura": "https://example.com/img/guantes-sp8-mini.jpg",
+    "marca": "Alpinestars",
+    "descripcion": "Guantes de cuero con protecciones rígidas para mayor seguridad.",
+    "modelo": "SP-8",
+    "precio": 220.0,
+    "galeria": ["https://example.com/img/guantes-sp8-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 30
+  },
+  {
+    "nombre": "Chaqueta Komine JK-063",
+    "portada": "https://example.com/img/chaqueta-komine-portada.jpg",
+    "miniatura": "https://example.com/img/chaqueta-komine-mini.jpg",
+    "marca": "Komine",
+    "descripcion": "Chaqueta de moto con protecciones CE y reflectantes.",
+    "modelo": "JK-063",
+    "precio": 650.0,
+    "galeria": ["https://example.com/img/chaqueta-komine-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 10
+  },
+  {
+    "nombre": "Rodilleras FOX Titan",
+    "portada": "https://example.com/img/rodilleras-fox-portada.jpg",
+    "miniatura": "https://example.com/img/rodilleras-fox-mini.jpg",
+    "marca": "FOX",
+    "descripcion": "Rodilleras de protección para conducción off-road.",
+    "modelo": "Titan",
+    "precio": 120.0,
+    "galeria": ["https://example.com/img/rodilleras-fox-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 25
+  },
+  {
+    "nombre": "Maletero Givi B32N",
+    "portada": "https://example.com/img/maletero-givi-b32n-portada.jpg",
+    "miniatura": "https://example.com/img/maletero-givi-b32n-mini.jpg",
+    "marca": "Givi",
+    "descripcion": "Maletero rígido con capacidad para un casco integral.",
+    "modelo": "B32N",
+    "precio": 390.0,
+    "galeria": ["https://example.com/img/maletero-givi-b32n-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 12
+  },
+  {
+    "nombre": "Lentes de protección 100%",
+    "portada": "https://example.com/img/lentes-100-portada.jpg",
+    "miniatura": "https://example.com/img/lentes-100-mini.jpg",
+    "marca": "100%",
+    "descripcion": "Lentes para motocross con protección UV y espuma antipolvo.",
+    "modelo": "Strata 2",
+    "precio": 95.0,
+    "galeria": ["https://example.com/img/lentes-100-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 40
+  },
+  {
+    "nombre": "Protectores de manos Acerbis",
+    "portada": "https://example.com/img/acerbis-manos-portada.jpg",
+    "miniatura": "https://example.com/img/acerbis-manos-mini.jpg",
+    "marca": "Acerbis",
+    "descripcion": "Protectores de manos para motos enduro o doble propósito.",
+    "modelo": "X-Factor",
+    "precio": 180.0,
+    "galeria": ["https://example.com/img/acerbis-manos-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 18
+  },
+  {
+    "nombre": "Alforjas Shad SW42",
+    "portada": "https://example.com/img/alforjas-shad-portada.jpg",
+    "miniatura": "https://example.com/img/alforjas-shad-mini.jpg",
+    "marca": "Shad",
+    "descripcion": "Alforjas impermeables con gran capacidad y resistencia.",
+    "modelo": "SW42",
+    "precio": 570.0,
+    "galeria": ["https://example.com/img/alforjas-shad-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 7
+  },
+  {
+    "nombre": "Intercomunicador Sena 20S",
+    "portada": "https://example.com/img/sena-20s-portada.jpg",
+    "miniatura": "https://example.com/img/sena-20s-mini.jpg",
+    "marca": "Sena",
+    "descripcion": "Intercomunicador Bluetooth para casco con calidad HD.",
+    "modelo": "20S",
+    "precio": 1200.0,
+    "galeria": ["https://example.com/img/sena-20s-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 5
+  },
+  {
+    "nombre": "Faja lumbar EVS BB04",
+    "portada": "https://example.com/img/faja-evs-portada.jpg",
+    "miniatura": "https://example.com/img/faja-evs-mini.jpg",
+    "marca": "EVS",
+    "descripcion": "Faja de protección lumbar ajustable para motociclistas.",
+    "modelo": "BB04",
+    "precio": 150.0,
+    "galeria": ["https://example.com/img/faja-evs-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 22
+  },
+  {
+    "nombre": "Chaleco reflectante Dainese",
+    "portada": "https://example.com/img/chaleco-dainese-portada.jpg",
+    "miniatura": "https://example.com/img/chaleco-dainese-mini.jpg",
+    "marca": "Dainese",
+    "descripcion": "Chaleco con elementos reflectantes para mayor visibilidad.",
+    "modelo": "High Visibility",
+    "precio": 99.0,
+    "galeria": ["https://example.com/img/chaleco-dainese-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 35
+  },
+  {
+    "nombre": "Antirrobo con alarma Xena XX6",
+    "portada": "https://example.com/img/xena-xx6-portada.jpg",
+    "miniatura": "https://example.com/img/xena-xx6-mini.jpg",
+    "marca": "Xena",
+    "descripcion": "Candado de disco con alarma de 120dB para mayor seguridad.",
+    "modelo": "XX6",
+    "precio": 310.0,
+    "galeria": ["https://example.com/img/xena-xx6-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 9
+  },
+  {
+    "nombre": "Soporte para celular RAM Mount",
+    "portada": "https://example.com/img/ram-mount-portada.jpg",
+    "miniatura": "https://example.com/img/ram-mount-mini.jpg",
+    "marca": "RAM",
+    "descripcion": "Soporte ajustable para smartphones en motocicleta.",
+    "modelo": "X-Grip",
+    "precio": 145.0,
+    "galeria": ["https://example.com/img/ram-mount-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 20
+  },
+  {
+    "nombre": "Chaleco airbag Helite Turtle",
+    "portada": "https://example.com/img/helite-turtle-portada.jpg",
+    "miniatura": "https://example.com/img/helite-turtle-mini.jpg",
+    "marca": "Helite",
+    "descripcion": "Chaleco con airbag incorporado para máxima protección.",
+    "modelo": "Turtle 2",
+    "precio": 1450.0,
+    "galeria": ["https://example.com/img/helite-turtle-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 3
+  },
+  {
+    "nombre": "Cubrepuños Oxford",
+    "portada": "https://example.com/img/oxford-cubrepunos-portada.jpg",
+    "miniatura": "https://example.com/img/oxford-cubrepunos-mini.jpg",
+    "marca": "Oxford",
+    "descripcion": "Cubrepuños térmicos para proteger del frío extremo.",
+    "modelo": "Handlebar Muffs",
+    "precio": 110.0,
+    "galeria": ["https://example.com/img/oxford-cubrepunos-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 16
+  },
+  {
+    "nombre": "Cámara de acción GoPro Hero 11",
+    "portada": "https://example.com/img/gopro11-portada.jpg",
+    "miniatura": "https://example.com/img/gopro11-mini.jpg",
+    "marca": "GoPro",
+    "descripcion": "Cámara resistente al agua con estabilización avanzada.",
+    "modelo": "Hero 11",
+    "precio": 1800.0,
+    "galeria": ["https://example.com/img/gopro11-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 6
+  },
+  {
+    "nombre": "Mochila impermeable Klim",
+    "portada": "https://example.com/img/klim-mochila-portada.jpg",
+    "miniatura": "https://example.com/img/klim-mochila-mini.jpg",
+    "marca": "Klim",
+    "descripcion": "Mochila resistente al agua y diseñada para motoristas.",
+    "modelo": "Nac Pak",
+    "precio": 390.0,
+    "galeria": ["https://example.com/img/klim-mochila-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 11
+  },
+  {
+    "nombre": "Lubricante de cadena Motul C2",
+    "portada": "https://example.com/img/motul-c2-portada.jpg",
+    "miniatura": "https://example.com/img/motul-c2-mini.jpg",
+    "marca": "Motul",
+    "descripcion": "Lubricante específico para cadenas de motos.",
+    "modelo": "C2 Chain Lube",
+    "precio": 50.0,
+    "galeria": ["https://example.com/img/motul-c2-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 60
+  },
+  {
+    "nombre": "Compresor portátil Xiaomi",
+    "portada": "https://example.com/img/compresor-xiaomi-portada.jpg",
+    "miniatura": "https://example.com/img/compresor-xiaomi-mini.jpg",
+    "marca": "Xiaomi",
+    "descripcion": "Compresor digital recargable para neumáticos de moto.",
+    "modelo": "Mi Portable Air Pump 2",
+    "precio": 180.0,
+    "galeria": ["https://example.com/img/compresor-xiaomi-1.jpg"],
+    "tipo": "accesorio",
+    "stock": 14
+  },
+  {
+    "nombre": "Casco Integral con Bluetooth",
+    "portada": "https://images.unsplash.com/photo-1574717024659-b62b45403074",
+    "miniatura": "https://images.unsplash.com/photo-1574717024659-b62b45403074?w=200",
+    "marca": "Steelbird",
+    "descripcion": "Casco integral con conectividad Bluetooth, ideal para viajes largos y llamadas en movimiento.",
+    "modelo": "SBH-34 BLT",
+    "precio": 320.0,
+    "galeria": [
+      "https://images.unsplash.com/photo-1574717024659-b62b45403074",
+      "https://images.unsplash.com/photo-1615392445235-99ad52b0e123"
+    ],
+    "tipo": "accesorio",
+    "stock": 15
+  },
+  {
+    "nombre": "Cambio de cadena y piñón",
+    "portada": "https://example.com/img/cambio-cadena-portada.jpg",
+    "miniatura": "https://example.com/img/cambio-cadena-mini.jpg",
+    "marca": "Transmisión Plus",
+    "descripcion": "Servicio completo con tensado correcto y lubricado.",
+    "modelo": "SERV-CAD-010",
+    "precio": 130.0,
+    "galeria": ["https://example.com/img/cambio-cadena-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 13
+  },
+  {
+    "nombre": "Pastillas de freno delanteras",
+    "portada": "https://example.com/img/pastillas-portada.jpg",
+    "miniatura": "https://example.com/img/pastillas-mini.jpg",
+    "marca": "BrakeMaster",
+    "descripcion": "Pastillas resistentes al calor y desgaste.",
+    "modelo": "FRN-DEL-045",
+    "precio": 85.0,
+    "galeria": ["https://example.com/img/pastillas-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 22
+  },
+  {
+    "nombre": "Filtro de aceite",
+    "portada": "https://example.com/img/filtro-aceite-portada.jpg",
+    "miniatura": "https://example.com/img/filtro-aceite-mini.jpg",
+    "marca": "OilGuard",
+    "descripcion": "Filtro de alto flujo compatible con motos 150cc.",
+    "modelo": "FILT-OIL-011",
+    "precio": 35.0,
+    "galeria": ["https://example.com/img/filtro-aceite-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 40
+  },
+  {
+    "nombre": "Bujía NGK CR8E",
+    "portada": "https://example.com/img/bujia-ngk-portada.jpg",
+    "miniatura": "https://example.com/img/bujia-ngk-mini.jpg",
+    "marca": "NGK",
+    "descripcion": "Ideal para motores de alto rendimiento.",
+    "modelo": "NGK-CR8E",
+    "precio": 25.0,
+    "galeria": ["https://example.com/img/bujia-ngk-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 70
+  },
+  {
+    "nombre": "Cadena reforzada 428H",
+    "portada": "https://example.com/img/cadena-428h-portada.jpg",
+    "miniatura": "https://example.com/img/cadena-428h-mini.jpg",
+    "marca": "PowerChain",
+    "descripcion": "Alta resistencia para motos de trabajo.",
+    "modelo": "CAD-428H-009",
+    "precio": 95.0,
+    "galeria": ["https://example.com/img/cadena-428h-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 18
+  },
+  {
+    "nombre": "Kit de transmisión",
+    "portada": "https://example.com/img/kit-transmision-portada.jpg",
+    "miniatura": "https://example.com/img/kit-transmision-mini.jpg",
+    "marca": "MaxDrive",
+    "descripcion": "Incluye piñón, catalina y cadena.",
+    "modelo": "KIT-TRNS-200",
+    "precio": 240.0,
+    "galeria": ["https://example.com/img/kit-transmision-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 10
+  },
+  {
+    "nombre": "Amortiguador trasero",
+    "portada": "https://example.com/img/amortiguador-portada.jpg",
+    "miniatura": "https://example.com/img/amortiguador-mini.jpg",
+    "marca": "ShockPro",
+    "descripcion": "Con ajuste de precarga para distintos terrenos.",
+    "modelo": "AMORT-TRAS-150",
+    "precio": 190.0,
+    "galeria": ["https://example.com/img/amortiguador-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 12
+  },
+  {
+    "nombre": "Manigueta de freno",
+    "portada": "https://example.com/img/manigueta-portada.jpg",
+    "miniatura": "https://example.com/img/manigueta-mini.jpg",
+    "marca": "LevaX",
+    "descripcion": "Aluminio anodizado, diseño ergonómico.",
+    "modelo": "MAN-FRN-073",
+    "precio": 40.0,
+    "galeria": ["https://example.com/img/manigueta-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 30
+  },
+  {
+    "nombre": "Disco de freno ventilado",
+    "portada": "https://example.com/img/disco-portada.jpg",
+    "miniatura": "https://example.com/img/disco-mini.jpg",
+    "marca": "CoolStop",
+    "descripcion": "Mayor refrigeración en frenadas exigentes.",
+    "modelo": "DISC-FRN-VENT-081",
+    "precio": 130.0,
+    "galeria": ["https://example.com/img/disco-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 14
+  },
+  {
+    "nombre": "Filtro de aire deportivo",
+    "portada": "https://example.com/img/filtro-aire-portada.jpg",
+    "miniatura": "https://example.com/img/filtro-aire-mini.jpg",
+    "marca": "AirBoost",
+    "descripcion": "Filtro lavable y reutilizable de alto flujo.",
+    "modelo": "AIR-FILT-003",
+    "precio": 75.0,
+    "galeria": ["https://example.com/img/filtro-aire-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 25
+  },
+  {
+    "nombre": "Llanta trasera 120/80",
+    "portada": "https://example.com/img/llanta-trasera-portada.jpg",
+    "miniatura": "https://example.com/img/llanta-trasera-mini.jpg",
+    "marca": "RoadGrip",
+    "descripcion": "Llanta de alto agarre ideal para uso urbano.",
+    "modelo": "LLT-TRAS-12080",
+    "precio": 270.0,
+    "galeria": ["https://example.com/img/llanta-trasera-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 9
+  },
+  {
+    "nombre": "Llanta delantera 90/90",
+    "portada": "https://example.com/img/llanta-delantera-portada.jpg",
+    "miniatura": "https://example.com/img/llanta-delantera-mini.jpg",
+    "marca": "GripTech",
+    "descripcion": "Banda de rodamiento diseñada para estabilidad.",
+    "modelo": "LLT-DEL-9090",
+    "precio": 245.0,
+    "galeria": ["https://example.com/img/llanta-delantera-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 8
+  },
+  {
+    "nombre": "Espejo retrovisor derecho",
+    "portada": "https://example.com/img/espejo-derecho-portada.jpg",
+    "miniatura": "https://example.com/img/espejo-derecho-mini.jpg",
+    "marca": "ClearView",
+    "descripcion": "Cristal antirreflejo con soporte de metal.",
+    "modelo": "ESP-DRCH-001",
+    "precio": 60.0,
+    "galeria": ["https://example.com/img/espejo-derecho-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 20
+  },
+  {
+    "nombre": "Espejo retrovisor izquierdo",
+    "portada": "https://example.com/img/espejo-izquierdo-portada.jpg",
+    "miniatura": "https://example.com/img/espejo-izquierdo-mini.jpg",
+    "marca": "ClearView",
+    "descripcion": "Cristal curvado para mejor ángulo de visión.",
+    "modelo": "ESP-IZQ-002",
+    "precio": 60.0,
+    "galeria": ["https://example.com/img/espejo-izquierdo-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 19
+  },
+  {
+    "nombre": "Cables de acelerador",
+    "portada": "https://example.com/img/cables-acelerador-portada.jpg",
+    "miniatura": "https://example.com/img/cables-acelerador-mini.jpg",
+    "marca": "ThrottlePro",
+    "descripcion": "Compatibles con motos hasta 250cc.",
+    "modelo": "CBL-ACEL-115",
+    "precio": 45.0,
+    "galeria": ["https://example.com/img/cables-acelerador-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 27
+  },
+  {
+    "nombre": "Foco delantero LED",
+    "portada": "https://example.com/img/foco-led-portada.jpg",
+    "miniatura": "https://example.com/img/foco-led-mini.jpg",
+    "marca": "BrightMoto",
+    "descripcion": "Iluminación blanca intensa de bajo consumo.",
+    "modelo": "FOC-LED-006",
+    "precio": 95.0,
+    "galeria": ["https://example.com/img/foco-led-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 35
+  },
+  {
+    "nombre": "Interruptor de encendido",
+    "portada": "https://example.com/img/interruptor-portada.jpg",
+    "miniatura": "https://example.com/img/interruptor-mini.jpg",
+    "marca": "SwitchOne",
+    "descripcion": "Sistema de bloqueo con llave de repuesto.",
+    "modelo": "INT-ENC-020",
+    "precio": 110.0,
+    "galeria": ["https://example.com/img/interruptor-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 11
+  },
+  {
+    "nombre": "Batería 12V 5Ah",
+    "portada": "https://example.com/img/bateria-portada.jpg",
+    "miniatura": "https://example.com/img/bateria-mini.jpg",
+    "marca": "VoltPro",
+    "descripcion": "Batería libre de mantenimiento.",
+    "modelo": "BAT-12V-5A",
+    "precio": 180.0,
+    "galeria": ["https://example.com/img/bateria-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 15
+  },
+  {
+    "nombre": "Bobina de encendido",
+    "portada": "https://example.com/img/bobina-portada.jpg",
+    "miniatura": "https://example.com/img/bobina-mini.jpg",
+    "marca": "SparkBoost",
+    "descripcion": "Mejora el arranque y reduce el consumo.",
+    "modelo": "BOB-IGN-100",
+    "precio": 140.0,
+    "galeria": ["https://example.com/img/bobina-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 17
+  },
+  {
+    "nombre": "Polea variador",
+    "portada": "https://example.com/img/polea-portada.jpg",
+    "miniatura": "https://example.com/img/polea-mini.jpg",
+    "marca": "VariatorX",
+    "descripcion": "Rendimiento optimizado para scooters.",
+    "modelo": "POL-VAR-223",
+    "precio": 160.0,
+    "galeria": ["https://example.com/img/polea-1.jpg"],
+    "tipo": "repuesto",
+    "stock": 13
   }
 ]

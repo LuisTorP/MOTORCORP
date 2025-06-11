@@ -7,10 +7,8 @@ export interface Product {
   modelo: string;
   precio: number;
   galeria: string[];
-  tipo: Tipo;
+  tipo: ProductType;
   id: string;
 }
 
-export enum Tipo {
-  Moto = 'moto',
-}
+export type ProductType = 'moto' | 'accesorio' | 'repuesto';

@@ -1,8 +1,11 @@
 export const APP_ROUTES = {
   // * PUBLIC ROUTES
 
-  motos: {
-    root: '/motos',
-    detail: (motoId: string) => `/motos/${motoId}`,
+  products: {
+    root: '/products',
+    moto: '/products/moto',
+    accesorio: '/products/accesorio',
+    repuesto: '/products/repuesto',
+    detail: (productId: string) => `/products/${productId}`,
   },
 };

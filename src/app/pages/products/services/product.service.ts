@@ -10,9 +10,10 @@ import {
   where,
   Query,
 } from 'firebase/firestore';
-import { Product } from '../intefaces/product.interface';
+import { Product, ProductType } from '../intefaces/product.interface';
 import { Firestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
+import { DocumentData } from '@angular/fire/compat/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -27,8 +28,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  async getProducts() {
-    const data = await getDocs(this.productsCollection);
+  async getProducts(type?: ProductType) {
+    let q: Query<Product, DocumentData> = this.productsCollection;
+    if (type) {
+      q = query(this.productsCollection, where('tipo', '==', type));
+    }
+    const data = await getDocs(q);
     const products = [...data.docs.map((d) => ({ ...d.data(), id: d.id }))];
     this.products.set(products);
     this.allProducts.set(products);

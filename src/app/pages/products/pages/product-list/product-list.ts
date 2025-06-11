@@ -9,6 +9,7 @@ import {
 import { CardProduct } from '../../components/card-product/card-product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductType } from '../../intefaces/product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -18,6 +19,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductList implements OnInit, OnChanges {
   @Input() search!: string;
+  @Input() type!: ProductType;
 
   private productService = inject(ProductService);
   private router = inject(Router);
@@ -26,7 +28,7 @@ export class ProductList implements OnInit, OnChanges {
   products = this.productService.products;
 
   ngOnInit(): void {
-    this.productService.getProducts().then(() => {
+    this.productService.getProducts(this.type).then(() => {
       if (this.search) {
         this.productService.filterProducts(this.search);
       }

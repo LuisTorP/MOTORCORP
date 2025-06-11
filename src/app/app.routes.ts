@@ -6,17 +6,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home').then((c) => c.Home),
   },
   {
-    path: 'motos',
-    loadChildren: () =>
-      import('./pages/products/products.routes').then((r) => r.productRoutes),
-  },
-  {
-    path: 'accesorios',
-    loadChildren: () =>
-      import('./pages/products/products.routes').then((r) => r.productRoutes),
-  },
-  {
-    path: 'repuestos',
+    path: 'products',
     loadChildren: () =>
       import('./pages/products/products.routes').then((r) => r.productRoutes),
   },
