@@ -1,6 +1,8 @@
 export const APP_ROUTES = {
   // * PUBLIC ROUTES
-
+  home: {
+    root: '/home',
+  },
   products: {
     root: '/products',
     moto: '/products/moto',

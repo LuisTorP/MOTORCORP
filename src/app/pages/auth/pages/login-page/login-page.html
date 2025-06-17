@@ -1,1 +1,23 @@
-<p>login-page works!</p>
+<div class="mc-container">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login__title">Iniciar Sesión</div>
+    <div class="login__subtitle">
+      Hola, Ingresa tus credenciales para acceder con tu cuenta
+    </div>
+    <div class="login__inputs">
+      <input
+        class="input"
+        formControlName="email"
+        type="text"
+        placeholder="Correo"
+      />
+      <input
+        class="input"
+        formControlName="password"
+        type="password"
+        placeholder="Contraseña"
+      />
+    </div>
+    <button class="login__button" type="submit">Ingresar</button>
+  </form>
+</div>

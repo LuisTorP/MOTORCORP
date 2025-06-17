@@ -10,7 +10,7 @@ import {
 } from 'firebase/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { inject, Injectable } from '@angular/core';
-import { User } from '../interfaces/user.interface';
+import { User, UserRole } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -22,6 +22,31 @@ export class UserService {
     this.firestore,
     'usuarios'
   ) as CollectionReference<User>;
+
+  async getUser(email: string, password: string, role?: UserRole) {
+    const filters = [
+      where('email', '==', email),
+      where('password', '==', password),
+      where('estado', '==', 'activo'),
+    ];
+    if (role !== undefined) {
+      filters.push(where('rol', '==', role));
+    }
+
+    const q = query(this.userCollection, ...filters);
+
+    const data = await getDocs(q);
+    if (data.empty) {
+      console.warn('No se encontró el usuario');
+      return null;
+    }
+    const user = data.docs[0];
+    const { password: _, ...userWithoutPassword } = user.data();
+    return {
+      ...userWithoutPassword,
+      id: user.id,
+    };
+  }
 
   async registerUser(userFormData: Partial<User>) {
     const q = query(
@@ -39,25 +64,6 @@ export class UserService {
       created_at: serverTimestamp(),
       updated_at: serverTimestamp(),
     });
-  }
-
-  async getUser(email: string, password: string) {
-    const q = query(
-      this.userCollection,
-      where('email', '==', email),
-      where('password', '==', password),
-      where('estado', '==', 'activo')
-    );
-    const data = await getDocs(q);
-    if (data.empty) {
-      console.warn('No se encontró el usuario');
-      return null;
-    }
-    const user = data.docs[0];
-    return {
-      ...user.data(),
-      id: user.id,
-    };
   }
 
   async loadSeed() {

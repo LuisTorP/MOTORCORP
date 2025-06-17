@@ -1,6 +1,12 @@
 import { Routes } from '@angular/router';
+import { isNotLoggedInGuard } from './pages/auth/guards/auth.guard';
 
 export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
   {
     path: 'home',
     loadComponent: () => import('./pages/home/home').then((c) => c.Home),
@@ -9,6 +15,7 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./pages/auth/auth.routes').then((r) => r.authRoutes),
+    canActivate: [isNotLoggedInGuard],
   },
   {
     path: 'products',

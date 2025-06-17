@@ -54,5 +54,12 @@
     <h5 [routerLink]="['/','about']" routerLinkActive="header__item__active">
       NOSOTROS
     </h5>
+    @if (!user()) {
+    <div [routerLink]="[routes.auth.login]" class="login__button">
+      INICIAR SESIÓN
+    </div>
+    } @else {
+    <div class="login__button" (click)="logout()">CERRAR SESIÓN</div>
+    }
   </div>
 </div>
