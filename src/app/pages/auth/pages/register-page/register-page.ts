@@ -1,9 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { User } from '../../interfaces/user.interface';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { APP_ROUTES } from '../../../../routes.constant';
 
 @Component({
   selector: 'register-page',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })
-export class RegisterPage {}
+export class RegisterPage {
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private userService = inject(UserService);
+  private router = inject(Router);
+
+  routes = APP_ROUTES;
+
+  registerForm = this.fb.group({
+    name: ['', Validators.required],
+    surnames: ['', Validators.required],
+    phone: ['', Validators.required],
+    address: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+  });
+
+  async register() {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched;
+      return;
+    }
+    const { name, surnames, email, password, phone, address } =
+      this.registerForm.value;
+    const userData: Partial<User> = {
+      apellido: surnames!,
+      direccion: address!,
+      email: email!,
+      nombre: name!,
+      password: password!,
+      rol: 'comprador',
+      telefono: phone!,
+    };
+    await this.userService.registerUser(userData);
+    delete userData.password;
+    this.authService.login(userData as User);
+    this.router.navigateByUrl(this.routes.home.root);
+  }
+}

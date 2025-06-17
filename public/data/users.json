@@ -10,7 +10,6 @@
     "estado": "activo"
   },
   {
-    "id": "user_comprador_001",
     "nombre": "Luis",
     "apellido": "Gómez",
     "email": "luis.compra@example.com",

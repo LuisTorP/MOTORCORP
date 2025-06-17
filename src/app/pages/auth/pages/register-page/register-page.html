@@ -1,1 +1,45 @@
-<p>register-page works!</p>
+<div class="mc-container">
+  <form class="login" [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="login__title">Crear Cuenta</div>
+    <div class="login__subtitle">
+      Hola, completa los siguientes campos para registrarte
+    </div>
+    <div class="login__inputs">
+      <input
+        class="input"
+        formControlName="name"
+        type="text"
+        placeholder="Nombres"
+      />
+      <input
+        class="input"
+        formControlName="surnames"
+        type="text"
+        placeholder="Apellidos"
+      /><input
+        class="input"
+        formControlName="phone"
+        type="number"
+        placeholder="Teléfono"
+      /><input
+        class="input"
+        formControlName="address"
+        type="text"
+        placeholder="Dirección"
+      />
+      <input
+        class="input"
+        formControlName="email"
+        type="text"
+        placeholder="Correo"
+      />
+      <input
+        class="input"
+        formControlName="password"
+        type="password"
+        placeholder="Contraseña"
+      />
+    </div>
+    <button class="login__button" type="submit">Ingresar</button>
+  </form>
+</div>
