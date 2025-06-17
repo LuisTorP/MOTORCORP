@@ -3,14 +3,14 @@ import { UserService } from '../../services/user.service';
 import { ProductService } from '../../../products/services/product.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StorageService } from '../../../../shared/services/storage.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { APP_ROUTES } from '../../../../routes.constant';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'login-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })
@@ -40,7 +40,11 @@ export class LoginPage implements OnInit {
       return;
     }
     const { email, password } = this.loginForm.value;
-    const user = (await this.userService.getUser(email!, password!)) as User;
+    const user = (await this.userService.getUser(
+      email!.trim(),
+      password!.trim()
+    )) as User;
+    if (!user) return;
     this.authService.login(user);
     this.router.navigateByUrl(this.routes.home.root);
   }

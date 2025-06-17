@@ -1,10 +1,10 @@
 <div class="mc-container">
-  <form class="login" [formGroup]="registerForm" (ngSubmit)="register()">
-    <div class="login__title">Crear Cuenta</div>
-    <div class="login__subtitle">
+  <form class="register" [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="register__title">Crear Cuenta</div>
+    <div class="register__subtitle">
       Hola, completa los siguientes campos para registrarte
     </div>
-    <div class="login__inputs">
+    <div class="register__inputs">
       <input
         class="input"
         formControlName="name"
@@ -40,6 +40,10 @@
         placeholder="Contraseña"
       />
     </div>
-    <button class="login__button" type="submit">Ingresar</button>
+    <button class="register__button" type="submit">Ingresar</button>
+    <div class="register__login">
+      ¿Ya tienes una cuenta?
+      <a [routerLink]="routes.auth.login">Inicia sesión</a>
+    </div>
   </form>
 </div>

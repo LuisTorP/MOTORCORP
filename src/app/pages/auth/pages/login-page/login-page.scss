@@ -51,6 +51,17 @@
       filter: brightness(1.25);
     }
   }
+  &__register {
+    font-size: 1rem;
+    text-align: center;
+    a {
+      color: rgb(13, 92, 165);
+      &:hover {
+        text-decoration: underline;
+        filter: brightness(1.25);
+      }
+    }
+  }
 }
 
 .input {

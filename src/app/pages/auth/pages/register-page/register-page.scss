@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.login {
+.register {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -49,6 +49,17 @@
     transition: filter ease 0.2s;
     &:hover {
       filter: brightness(1.25);
+    }
+  }
+  &__login {
+    font-size: 1rem;
+    text-align: center;
+    a {
+      color: rgb(13, 92, 165);
+      &:hover {
+        text-decoration: underline;
+        filter: brightness(1.25);
+      }
     }
   }
 }

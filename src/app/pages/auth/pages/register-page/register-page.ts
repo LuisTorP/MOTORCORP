@@ -3,12 +3,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user.interface';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { APP_ROUTES } from '../../../../routes.constant';
 
 @Component({
   selector: 'register-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })
@@ -37,13 +37,13 @@ export class RegisterPage {
     const { name, surnames, email, password, phone, address } =
       this.registerForm.value;
     const userData: Partial<User> = {
-      apellido: surnames!,
-      direccion: address!,
-      email: email!,
-      nombre: name!,
-      password: password!,
+      apellido: surnames!.trim(),
+      direccion: address!.trim(),
+      email: email!.trim(),
+      nombre: name!.trim(),
+      password: password!.trim(),
       rol: 'comprador',
-      telefono: phone!,
+      telefono: phone!.trim(),
     };
     await this.userService.registerUser(userData);
     delete userData.password;

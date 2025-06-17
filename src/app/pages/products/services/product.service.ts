@@ -48,7 +48,6 @@ export class ProductService {
 
   private getRandomItems<T>(array: T[], count: number): T[] {
     const shuffled = [...array].sort(() => 0.5 - Math.random());
-    console.log(shuffled);
     return shuffled.slice(0, count);
   }
 
