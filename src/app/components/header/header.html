@@ -1,6 +1,6 @@
 <div class="header">
   <div class="container-max">
-    <a [routerLink]="['/','home']"
+    <a [routerLink]="[routes.home.root]"
       ><svg
         width="200"
         height="26"
@@ -34,24 +34,24 @@
     </a>
 
     <h5
-      [routerLink]="routes.products.moto"
+      [routerLink]="[routes.products.moto]"
       routerLinkActive="header__item__active"
     >
       MOTOS
     </h5>
     <h5
-      [routerLink]="routes.products.accesorio"
+      [routerLink]="[routes.products.accesorio]"
       routerLinkActive="header__item__active"
     >
       ACCESORIOS
     </h5>
     <h5
-      [routerLink]="routes.products.repuesto"
+      [routerLink]="[routes.products.repuesto]"
       routerLinkActive="header__item__active"
     >
       REPUESTOS
     </h5>
-    <h5 [routerLink]="['/','about']" routerLinkActive="header__item__active">
+    <h5 [routerLink]="[routes.about.root]" routerLinkActive="header__item__active">
       NOSOTROS
     </h5>
     @if (!user()) {

@@ -1,34 +1,25 @@
 import { Routes } from '@angular/router';
-import { isNotLoggedInGuard } from './pages/auth/guards/auth.guard';
+import { isNotLoggedInGuard } from './client/pages/auth/guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: 'client',
   },
   {
-    path: 'home',
-    loadComponent: () => import('./pages/home/home').then((c) => c.Home),
-  },
-  {
-    path: 'auth',
+    path: 'client',
     loadChildren: () =>
-      import('./pages/auth/auth.routes').then((r) => r.authRoutes),
-    canActivate: [isNotLoggedInGuard],
+      import('./client/client.routes').then((r) => r.clientRoutes),
   },
   {
-    path: 'products',
+    path: 'admin',
     loadChildren: () =>
-      import('./pages/products/products.routes').then((r) => r.productRoutes),
-  },
-  {
-    path: 'about',
-    loadComponent: () => import('./pages/about/about').then((c) => c.About),
+      import('./admin/admin.routes').then((r) => r.adminRoutes),
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'client',
     pathMatch: 'full',
   },
 ];

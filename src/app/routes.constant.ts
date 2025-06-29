@@ -4,15 +4,18 @@ export const APP_ROUTES = {
     root: '/home',
   },
   products: {
-    root: '/products',
-    moto: '/products/moto',
-    accesorio: '/products/accesorio',
-    repuesto: '/products/repuesto',
-    detail: (productId: string) => `/products/${productId}`,
+    root: '/client/products',
+    moto: '/client/products/moto',
+    accesorio: '/client/products/accesorio',
+    repuesto: '/client/products/repuesto',
+    detail: (productId: string) => `/client/products/${productId}`,
+  },
+  about: {
+    root: 'client/about',
   },
   auth: {
-    root: '/auth',
-    login: '/auth/login',
-    register: '/auth/register',
+    root: '/client/auth',
+    login: '/client/auth/login',
+    register: '/client/auth/register',
   },
 };
