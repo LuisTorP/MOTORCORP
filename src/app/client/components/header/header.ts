@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { APP_ROUTES } from '../../routes.constant';
-import { PlatformService } from '../../shared/services/platform.service';
-import { AuthService } from '../../client/pages/auth/services/auth.service';
+import { APP_ROUTES } from '../../../routes.constant';
+import { PlatformService } from '../../../shared/services/platform.service';
+import { AuthService } from '../../pages/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',

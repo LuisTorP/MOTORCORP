@@ -1,6 +1,6 @@
 <div class="header">
   <div class="container-max">
-    <a [routerLink]="[routes.home.root]"
+    <a [routerLink]="[routes.client.home.root]"
       ><svg
         width="200"
         height="26"
@@ -34,28 +34,28 @@
     </a>
 
     <h5
-      [routerLink]="[routes.products.moto]"
+      [routerLink]="[routes.client.products.moto]"
       routerLinkActive="header__item__active"
     >
       MOTOS
     </h5>
     <h5
-      [routerLink]="[routes.products.accesorio]"
+      [routerLink]="[routes.client.products.accesorio]"
       routerLinkActive="header__item__active"
     >
       ACCESORIOS
     </h5>
     <h5
-      [routerLink]="[routes.products.repuesto]"
+      [routerLink]="[routes.client.products.repuesto]"
       routerLinkActive="header__item__active"
     >
       REPUESTOS
     </h5>
-    <h5 [routerLink]="[routes.about.root]" routerLinkActive="header__item__active">
+    <h5 [routerLink]="[routes.client.about.root]" routerLinkActive="header__item__active">
       NOSOTROS
     </h5>
     @if (!user()) {
-    <div [routerLink]="[routes.auth.login]" class="login__button">
+    <div [routerLink]="[routes.client.auth.login]" class="login__button">
       INICIAR SESIÓN
     </div>
     } @else {

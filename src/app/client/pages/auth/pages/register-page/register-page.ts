@@ -48,6 +48,6 @@ export class RegisterPage {
     await this.userService.registerUser(userData);
     delete userData.password;
     this.authService.login(userData as User);
-    this.router.navigateByUrl(this.routes.home.root);
+    this.router.navigateByUrl(this.routes.client.home.root);
   }
 }

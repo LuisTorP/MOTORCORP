@@ -46,6 +46,6 @@ export class LoginPage implements OnInit {
     )) as User;
     if (!user) return;
     this.authService.login(user);
-    this.router.navigateByUrl(this.routes.home.root);
+    this.router.navigateByUrl(this.routes.client.home.root);
   }
 }

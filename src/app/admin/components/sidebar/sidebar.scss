@@ -1,0 +1,22 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--blue-500);
+  height: 100vh;
+  padding: 24px;
+  width: 248px;
+  &__item {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border-radius: 8px;
+    cursor: pointer;
+    &__active {
+      background-color: #32405b;
+
+    }
+  }
+}

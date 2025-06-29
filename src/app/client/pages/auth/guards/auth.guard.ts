@@ -11,7 +11,7 @@ export const isLoggedInGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const usuario = authService.user();
   if (!usuario) {
-    router.navigate([routes.auth.login]);
+    router.navigate([routes.client.auth.login]);
     return false;
   }
   return true;
@@ -22,7 +22,7 @@ export const isNotLoggedInGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const usuario = authService.user();
   if (usuario) {
-    router.navigate([routes.home.root]);
+    router.navigate([routes.client.home.root]);
     return false;
   }
   return true;
