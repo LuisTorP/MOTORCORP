@@ -70,6 +70,33 @@
       }
     }
   }
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  &__buy {
+    padding: 0px 1rem;
+    background: #ea5b0c;
+    border-radius: 0.25rem;
+    border: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: filter ease 0.2s;
+    &:hover {
+      filter: brightness(1.25);
+    }
+  }
 }
 
 .list {
