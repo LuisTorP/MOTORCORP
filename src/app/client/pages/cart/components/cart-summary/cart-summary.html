@@ -1,1 +1,18 @@
-<p>cart-summary works!</p>
+<div class="summary">
+  <div class="summary__title">Resumen del pedido</div>
+  <div class="summary__rows">
+    <div class="summary__row">
+      <div class="summary__label">Subtotal ({{totalItems()}} productos)</div>
+      <div class="summary__value">S/. {{totalPrice()}}</div>
+    </div>
+    <div class="summary__row summary__row--send">
+      <div class="summary__label">Envío</div>
+      <div class="summary__value">Gratis</div>
+    </div>
+    <div class="summary__rule"></div>
+    <div class="summary__row summary__row--total">
+      <div class="summary__label">Total</div>
+      <div class="summary__value">S/. {{totalPrice()}}</div>
+    </div>
+  </div>
+</div>
