@@ -1,0 +1,16 @@
+.paginator {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  background-color: white;
+  padding: 16px;
+  justify-content: end;
+  align-items: center;
+  border-radius: 0 0 4px 4px;
+  border-top: 1px solid #f0f0f0;;
+  &__button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+}

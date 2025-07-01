@@ -1,0 +1,48 @@
+<div class="product">
+  <h2>Productos</h2>
+  <div class="product__search">
+    <input
+      #searchInput
+      type="text"
+      placeholder="Buscar Productos"
+      [value]="search|| ''"
+      (input)="onSearchChange(searchInput.value)"
+    />
+  </div>
+  <div class="product__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Tipo</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products(); track $index) {
+        <tr>
+          <td>{{ product.nombre }}</td>
+          <td>{{ product.marca }}</td>
+          <td>{{ product.modelo }}</td>
+          <td>{{ product.tipo }}</td>
+          <td>S/ {{ product.precio }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <paginator
+      [page]="page"
+      [isLastPage]="isLastPage"
+      (pageChange)="onPageChange($event)"
+    />
+  </div>
+</div>

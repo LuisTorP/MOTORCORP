@@ -3,12 +3,18 @@ import {
   collection,
   CollectionReference,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
   Query,
+  QueryDocumentSnapshot,
   serverTimestamp,
   setDoc,
+  startAfter,
+  startAt,
   where,
 } from 'firebase/firestore';
 import { DocumentData } from '@angular/fire/compat/firestore';
@@ -29,15 +35,29 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  async getProducts(type?: ProductType) {
+  async getProducts(
+    type?: ProductType,
+    pageSize: number = 40,
+    lastDoc?: QueryDocumentSnapshot<Product>
+  ) {
     let q: Query<Product, DocumentData> = this.productsCollection;
     if (type) {
       q = query(this.productsCollection, where('tipo', '==', type));
+    }
+    q = query(q, limit(pageSize));
+    if (lastDoc) {
+      q = query(q, startAfter(lastDoc));
     }
     const data = await getDocs(q);
     const products = [...data.docs.map((d) => ({ ...d.data(), id: d.id }))];
     this.products.set(products);
     this.allProducts.set(products);
+    return {
+      products,
+      lastDoc: data.docs[data.docs.length - 1] as
+        | QueryDocumentSnapshot<Product>
+        | undefined,
+    };
   }
 
   async getRandomProducts(random: number) {
@@ -75,6 +95,32 @@ export class ProductService {
       console.warn(`Producto con ID ${id} no existe.`);
       return null;
     }
+  }
+
+  async addProduct(product: Omit<Product, 'id' | 'created_at' | 'updated_at'>) {
+    const prodRef = doc(this.productsCollection);
+    const id = prodRef.id;
+    await setDoc(prodRef, {
+      ...product,
+      id,
+      created_at: serverTimestamp(),
+      updated_at: serverTimestamp(),
+    });
+  }
+
+  async updateProduct(
+    id: string,
+    product: Partial<Omit<Product, 'id' | 'created_at' | 'updated_at'>>
+  ) {
+    const prodRef = doc(this.productsCollection, id);
+    await setDoc(
+      prodRef,
+      {
+        ...product,
+        updated_at: serverTimestamp(),
+      },
+      { merge: true }
+    );
   }
 
   async loadSeed() {
