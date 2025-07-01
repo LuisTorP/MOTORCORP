@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { StorageService } from '../../../../shared/services/storage.service';
-import { CartItem } from '../interfaces/cart.interface';
+import { CartDetail, CartItem } from '../interfaces/cart.interface';
 import { Product } from '../../products/interfaces/product.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -8,6 +8,7 @@ export class CartService {
   private storageService = inject(StorageService);
   private key = 'cart';
   products = signal<CartItem[]>(this.loadCart());
+  cartDetails = signal<CartDetail[]>([]);
 
   loadCart() {
     return this.storageService.getItem<CartItem[]>(this.key) || [];
@@ -22,15 +23,17 @@ export class CartService {
     const existing = currentCart.find((p) => p.id === product.id);
     if (existing && existing?.quantity < product.stock) {
       existing.quantity += 1;
-    } else {
+    } else if (!existing) {
       this.products.set([...currentCart, { id: product.id, quantity: 1 }]);
     }
+    this.refreshCartDetails();
     this.saveCart();
   }
 
   removeProduct(productId: string): void {
     const updatedCart = this.products().filter((p) => p.id !== productId);
     this.products.set(updatedCart);
+    this.refreshCartDetails();
     this.saveCart();
   }
 
@@ -43,6 +46,18 @@ export class CartService {
       return item;
     });
     this.products.set(updatedCart);
+    this.refreshCartDetails();
     this.saveCart();
+  }
+
+  refreshCartDetails() {
+    const cartItems = this.products();
+    const cartDetails = this.cartDetails();
+
+    const merged: CartDetail[] = cartDetails.flatMap((detail) => {
+      const exist = cartItems.find((item) => item.id === detail.id);
+      return exist ? [{ ...detail, quantity: exist.quantity }] : [];
+    });
+    this.cartDetails.set(merged);
   }
 }

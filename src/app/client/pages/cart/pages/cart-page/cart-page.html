@@ -1,6 +1,8 @@
 <div class="mc-container">
   <div class="cart__list">
-    <cart-product />
+    @for (product of cartDetails(); track $index) {
+    <cart-product [product]="product" />
+    }
   </div>
   <div></div>
 </div>

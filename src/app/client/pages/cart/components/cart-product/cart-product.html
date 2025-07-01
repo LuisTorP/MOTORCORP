@@ -9,7 +9,7 @@
         <div class="product__name">{{product.nombre}}</div>
         <div class="product__brand">Marca: {{product.marca}}</div>
       </div>
-      <div class="product__trash">
+      <div (click)="deleteItem(product.id)" class="product__trash">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -36,7 +36,10 @@
       <div class="product__quantity">
         <div class="product__quantity-label">Cantidad:</div>
         <div class="product__quantity-controls">
-          <div class="product__quantity-button">
+          <div
+            (click)="changeQuantity(product.id,product.quantity-1,product.stock)"
+            class="product__quantity-button"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -52,8 +55,18 @@
               <path d="M5 12h14"></path>
             </svg>
           </div>
-          <input type="number" class="product__quantity-value" />
-          <div class="product__quantity-button">
+          <input
+            type="number"
+            class="product__quantity-value"
+            [value]="product.quantity"
+            min="1"
+            [max]="product.stock"
+            (input)="onQuantityInput(product.id, $event, product.stock)"
+          />
+          <div
+            (click)="changeQuantity(product.id,product.quantity+1,product.stock)"
+            class="product__quantity-button"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -75,7 +88,7 @@
       </div>
     </div>
     <div class="product__subtotal">
-      Subtotal: S/. {{ product.precio||0 * 1 }}
+      Subtotal: S/. {{ product.precio * product.quantity }}
     </div>
   </div>
 </div>
