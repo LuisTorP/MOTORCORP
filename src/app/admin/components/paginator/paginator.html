@@ -1,0 +1,36 @@
+<div class="paginator">
+  <span>Página {{ page() }}</span>
+  @if (page() > 1) {
+  <button class="paginator__button" (click)="prev()">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19.4219 11.4062L14.8281 16L19.4219 20.5938L18.0156 22L12.0156 16L18.0156 10L19.4219 11.4062Z"
+        fill="black"
+        fill-opacity="0.54"
+      />
+    </svg>
+  </button>
+  } @if (!isLastPage()) {
+  <button class="paginator__button" (click)="next()">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.9844 10L19.9844 16L13.9844 22L12.5781 20.5938L17.1719 16L12.5781 11.4062L13.9844 10Z"
+        fill="black"
+        fill-opacity="0.54"
+      />
+    </svg>
+  </button>
+  }
+</div>
