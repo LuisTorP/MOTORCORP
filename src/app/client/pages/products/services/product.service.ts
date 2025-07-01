@@ -15,6 +15,7 @@ import { DocumentData } from '@angular/fire/compat/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
 import { Product, ProductType } from '../interfaces/product.interface';
+import { CartItem } from '../../cart/interfaces/cart.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -75,6 +76,17 @@ export class ProductService {
       console.warn(`Producto con ID ${id} no existe.`);
       return null;
     }
+  }
+
+  async getProductsByIds(cartItems: CartItem[]) {
+    const products: Product[] = [];
+    for (const item of cartItems) {
+      const docSnap = await this.getProductById(item.id);
+      if (docSnap) {
+        products.push(docSnap);
+      }
+    }
+    return products;
   }
 
   async loadSeed() {

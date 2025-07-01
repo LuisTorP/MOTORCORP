@@ -31,6 +31,11 @@ export const clientRoutes: Routes = [
         loadComponent: () => import('./pages/about/about').then((c) => c.About),
       },
       {
+        path: 'cart',
+        loadChildren: () =>
+          import('./pages/cart/cart.routes').then((r) => r.cartRoutes),
+      },
+      {
         path: '**',
         redirectTo: 'home',
         pathMatch: 'full',

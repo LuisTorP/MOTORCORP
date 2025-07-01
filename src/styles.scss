@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   --red-50: #fdefe7;
@@ -49,12 +49,17 @@ a {
   text-decoration: none;
 }
 
-*:not([class^="p-"]) {
-  font-family: "Roboto", sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+*:not([class^="p-"]):not(svg):not(svg *) {
   color: var(--secondary-color);
+  font-family: "Roboto", sans-serif;
 }
 
 h1,
@@ -78,6 +83,8 @@ h6 {
   max-width: 1526px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .list__products {

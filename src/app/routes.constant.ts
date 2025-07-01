@@ -19,6 +19,11 @@ export const APP_ROUTES = {
       login: '/client/auth/login',
       register: '/client/auth/register',
     },
+    cart: {
+      root: '/client/cart',
+      cart: '/client/cart',
+      checkout: '/client/cart/checkout',
+    },
   },
   admin: {
     products: {
@@ -26,7 +31,7 @@ export const APP_ROUTES = {
       detail: (productId: string) => `/admin/products/${productId}`,
     },
     sales: {
-      root: '/admin/sales'
-    }
-  }
+      root: '/admin/sales',
+    },
+  },
 };

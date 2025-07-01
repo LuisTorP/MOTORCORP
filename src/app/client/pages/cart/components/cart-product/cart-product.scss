@@ -1,0 +1,144 @@
+.product {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid rgb(228, 228, 231);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background-color: white;
+
+  &__image {
+    flex-shrink: 0;
+    img {
+      border-radius: 0.5rem;
+      border: 1px solid rgba(228, 229, 235, 1);
+      width: 6rem;
+      aspect-ratio: 4/4;
+      object-fit: contain;
+    }
+  }
+  &__details {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  &__category {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    border: 1px solid rgb(228, 228, 231);
+    border-radius: 9999px;
+    text-transform: uppercase;
+    color: rgb(9, 9, 11);
+  }
+  &__name {
+    color: rgb(17, 24, 39);
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+  }
+  &__brand {
+    color: rgb(107, 114, 128);
+    font-size: 0.875rem;
+  }
+
+  &__trash {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    align-self: flex-start;
+    display: inline-flex;
+    cursor: pointer;
+    color: rgb(220, 38, 38);
+    transition-property: color, background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    &:hover {
+      background-color: rgb(254, 242, 242);
+      color: rgb(185, 28, 28);
+    }
+    svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__price {
+    color: rgb(234, 88, 12);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  &__quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    &-label {
+      color: rgb(75 85 99);
+      font-size: 0.875rem;
+    }
+    &-controls {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgb(228, 228, 231);
+      border-radius: 0.5rem;
+    }
+    &-button {
+      display: inline-flex;
+      width: 2rem;
+      height: 2rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition-property: color, background-color, border-color,
+        text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+      &:hover {
+        // color: rgb(244, 244, 245);
+        background-color: rgb(244, 244, 245);
+      }
+      .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    &-value {
+      display: flex;
+      font-size: 0.875rem;
+      text-align: center;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      width: 4rem;
+      border-width: 0px;
+    }
+    &-stock {
+      color: rgb(107 114 128);
+      font-size: 0.875rem;
+    }
+  }
+  &__subtotal {
+    text-align: right;
+    color: rgb(17 24 39);
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+}
