@@ -21,8 +21,12 @@ export const APP_ROUTES = {
     },
     cart: {
       root: '/client/cart',
-      cart: '/client/cart',
-      checkout: '/client/cart/checkout',
+      checkout: {
+        root: '/client/cart/checkout',
+        shipping: '/client/cart/checkout/shipping',
+        payment: '/client/cart/checkout/payment',
+        confirmation: '/client/cart/checkout/confirmation',
+      },
     },
   },
   admin: {
