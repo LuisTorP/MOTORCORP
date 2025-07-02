@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { StorageService } from '../../../../shared/services/storage.service';
 import { CartDetail, CartItem } from '../interfaces/cart.interface';
 import { Product } from '../../products/interfaces/product.interface';
@@ -9,6 +9,15 @@ export class CartService {
   private key = 'cart';
   products = signal<CartItem[]>(this.loadCart());
   cartDetails = signal<CartDetail[]>([]);
+  totalItems = computed(() => {
+    return this.cartDetails().reduce((sum, item) => sum + item.quantity, 0);
+  });
+  totalPrice = computed(() => {
+    return this.cartDetails().reduce(
+      (sum, item) => sum + item.precio * item.quantity,
+      0
+    );
+  });
 
   loadCart() {
     return this.storageService.getItem<CartItem[]>(this.key) || [];

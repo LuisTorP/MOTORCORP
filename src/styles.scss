@@ -55,12 +55,12 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-*:not([class^="p-"]):not(svg):not(svg *) {
-  color: var(--secondary-color);
   font-family: "Roboto", sans-serif;
 }
+
+// *:not([class^="p-"]):not(svg):not(svg *) {
+//   color: var(--secondary-color);
+// }
 
 h1,
 h2,

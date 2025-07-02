@@ -56,14 +56,4 @@
       filter: brightness(1.25);
     }
   }
-  &__benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  &__benefit {
-    font-size: 0.875rem;
-    color: #6b7280;
-    text-align: center;
-  }
 }

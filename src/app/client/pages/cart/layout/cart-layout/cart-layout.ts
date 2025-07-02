@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../../products/services/product.service';
 import { CartDetail } from '../../interfaces/cart.interface';
 
 @Component({
   selector: 'cart-layout',
-  imports: [RouterModule],
+  imports: [RouterOutlet],
   templateUrl: './cart-layout.html',
   styleUrl: './cart-layout.scss',
 })

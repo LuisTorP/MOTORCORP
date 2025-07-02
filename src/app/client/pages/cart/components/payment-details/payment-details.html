@@ -1,0 +1,38 @@
+<div class="payment-details">
+  <div class="payment-details__title">Detalles del Pago</div>
+  <div class="payment-details__summary">
+    @for (product of cartDetails(); track $index) {
+    <div class="payment-details__item">
+      <div class="payment-details__item-info">
+        <div class="payment-details__item-name">{{product.nombre}}</div>
+        <div class="payment-details__item-brand">Marca: {{product.marca}}</div>
+        <div class="payment-details__item-quantity">
+          Cantidad: {{product.quantity}}
+        </div>
+      </div>
+      <div class="payment-details__item-price">
+        S/. {{product.precio * product.quantity}}
+      </div>
+    </div>
+    }
+    <div class="payment-details__separator"></div>
+    <div class="payment-details__row">
+      <div class="payment-details__label">Subtotal</div>
+      <div class="payment-details__value">S/. {{totalPrice()}}</div>
+    </div>
+    <div class="payment-details__row">
+      <div class="payment-details__label">Envio</div>
+      <div class="payment-details__value">
+        {{shippingMethod().price ===0? 'Gratis': 'S/. '+
+        shippingMethod().price}}
+      </div>
+    </div>
+    <div class="payment-details__separator"></div>
+    <div class="payment-details__row payment-details__row--total">
+      <div class="payment-details__label">Total</div>
+      <div class="payment-details__value">
+        S/. {{totalPrice()+ shippingMethod().price}}
+      </div>
+    </div>
+  </div>
+</div>

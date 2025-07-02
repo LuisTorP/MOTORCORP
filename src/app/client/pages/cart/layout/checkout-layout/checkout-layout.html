@@ -1,0 +1,19 @@
+<div class="mc-container">
+  <div class="checkout-steps">
+    @for (step of steps; track $index; let last = $last) {
+    <div [class.active]="isStepActive($index)" class="checkout-steps__step">
+      <div class="checkout-steps__circle">
+        <div class="checkout-steps__icon">
+          <ng-container [ngComponentOutlet]="step.icon"></ng-container>
+        </div>
+      </div>
+
+      <div class="checkout-steps__label">{{step.label}}</div>
+    </div>
+    @if (!$last) {
+    <div class="checkout-steps__separator"></div>
+    } }
+  </div>
+</div>
+
+<router-outlet></router-outlet>

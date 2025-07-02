@@ -1,0 +1,28 @@
+<div class="shipping-methods">
+  <div class="shipping-methods__title">Método de Envío</div>
+  <div class="shipping-methods__list">
+    @for (method of shippingMethods; track $index) {
+    <div class="shipping-methods__item">
+      <div class="shipping-methods__radio">
+        <input
+          type="radio"
+          name="shippingMethod"
+          [value]="method.id"
+          [checked]="shippingMethod().id===method.id"
+          (change)="changeShippingMethod(method)"
+        />
+      </div>
+
+      <div class="shipping-methods__content">
+        <div class="shipping-methods__details">
+          <div class="shipping-methods__label">{{method.label}}</div>
+          <div class="shipping-methods__note">{{method.note}}</div>
+        </div>
+        <div class="shipping-methods__price">
+          {{ method.price === 0 ? 'Gratis' : ('S/. ' + method.price) }}
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

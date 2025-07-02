@@ -29,13 +29,14 @@
       }
     </div>
     <div class="cart__summary">
-      <cart-summary [details]="cartDetails()" />
-      <button class="cart__button">Proceder al pago</button>
-      <div class="cart__benefits">
-        <div class="cart__benefit">🔒 Compra 100% segura</div>
-        <div class="cart__benefit">📦 Envío a todo el Perú</div>
-        <div class="cart__benefit">↩️ 30 días para devoluciones</div>
-      </div>
+      <cart-summary />
+      <button
+        [routerLink]="routes.client.cart.checkout.shipping"
+        class="cart__button"
+      >
+        Proceder al pago
+      </button>
+      <payment-guarantees />
     </div>
   </div>
 </div>

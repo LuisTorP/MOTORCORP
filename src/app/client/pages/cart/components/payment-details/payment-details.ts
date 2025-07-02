@@ -1,20 +1,18 @@
 import { Component, computed, inject, Input, signal } from '@angular/core';
 import { CartDetail } from '../../interfaces/cart.interface';
-import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { ShippingService } from '../../services/shipping.service';
 
 @Component({
-  selector: 'cart-summary',
-  imports: [CommonModule],
-  templateUrl: './cart-summary.html',
-  styleUrl: './cart-summary.scss',
+  selector: 'payment-details',
+  imports: [],
+  templateUrl: './payment-details.html',
+  styleUrl: './payment-details.scss',
 })
-export class CartSummary {
+export class PaymentDetails {
   private cartService = inject(CartService);
   private shippingService = inject(ShippingService);
-  detail = this.cartService.cartDetails;
+  cartDetails = this.cartService.cartDetails;
   totalPrice = this.cartService.totalPrice;
-  totalItems = this.cartService.totalItems;
   shippingMethod = this.shippingService.shippingMethod;
 }
