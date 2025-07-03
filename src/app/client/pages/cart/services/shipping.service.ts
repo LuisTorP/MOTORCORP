@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { StorageService } from '../../../../shared/services/storage.service';
 import { ShippingMethod } from '../interfaces/shipping.interface';
 
@@ -32,22 +32,22 @@ export class ShippingService {
 
   private loadShippingMethod(): ShippingMethod {
     const saved = this.storageService.getItem<ShippingMethod>(this.key);
-    if (saved && this.shippingMethods.some((m) => m.id === saved.id)) {
+    if (saved && this.shippingMethods.some(m => m.id === saved.id)) {
       return saved;
     }
-    const freeMethod = this.shippingMethods.find((m) => m.price === 0);
+    const freeMethod = this.shippingMethods.find(m => m.price === 0);
     return freeMethod ? freeMethod : this.shippingMethods[0];
   }
 
   selectShippingMethod(method: ShippingMethod): void {
-    if (this.shippingMethods.some((m) => m === method)) {
+    if (this.shippingMethods.some(m => m === method)) {
       this.shippingMethod.set(method);
       this.storageService.setItem(this.key, method);
     }
   }
 
   clearShippingMethod(): void {
-    const freeMethod = this.shippingMethods.find((m) => m.price === 0);
+    const freeMethod = this.shippingMethods.find(m => m.price === 0);
     this.shippingMethod.set(freeMethod ? freeMethod : this.shippingMethods[0]);
     localStorage.removeItem(this.key);
   }

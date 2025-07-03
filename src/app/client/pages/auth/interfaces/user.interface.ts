@@ -1,4 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
+import { MailingAddress } from '../../cart/interfaces/shipping.interface';
 
 export type UserRole = 'admin' | 'comprador';
 export type UserState = 'activo' | 'inactivo';
@@ -10,9 +11,9 @@ export interface User {
   email: string;
   password: string;
   telefono?: string;
-  direccion?: string;
   rol: UserRole;
   estado: 'activo' | 'inactivo';
   created_at: Timestamp;
   updated_at: Timestamp;
+  direcciones: MailingAddress[];
 }

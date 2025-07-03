@@ -36,7 +36,7 @@ export class ProductList implements OnInit, OnChanges {
   products = this.productService.products;
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(async (params) => {
+    this.route.queryParams.subscribe(async params => {
       const newPage = +params['page'] || 1;
       const type = params['type'] as ProductType | undefined;
       const search = params['search'] || '';
@@ -57,8 +57,7 @@ export class ProductList implements OnInit, OnChanges {
       } else if (newPage < this.page) {
         this.lastDocs = this.lastDocs.slice(0, newPage);
       }
-
-      let lastDoc = this.lastDocs[newPage - 2];
+      const lastDoc = this.lastDocs[newPage - 2];
       const result = await this.productService.getProducts(type, 15, lastDoc);
       this.isLastPage = result.products.length < 15;
 

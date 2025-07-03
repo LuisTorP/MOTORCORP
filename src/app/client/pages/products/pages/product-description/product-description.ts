@@ -50,7 +50,7 @@ export class ProductDescription implements OnInit, OnChanges {
   }
 
   async getProduct(id: string) {
-    const product = await this.productService.getProductById(this.productId);
+    const product = await this.productService.getProductById(id);
     this.product.set(product);
   }
 

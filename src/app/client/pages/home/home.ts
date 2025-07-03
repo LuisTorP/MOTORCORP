@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProductService } from '../products/services/product.service';
 import { CardProduct } from '../products/components/card-product/card-product';
 import { Product } from '../products/interfaces/product.interface';
@@ -11,6 +11,8 @@ import { CardBrand, Brand } from './components/card-brand/card-brand';
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
+  private productService = inject(ProductService);
+
   randomProducts = signal<Product[]>([]);
 
   brands: Brand[] = [
@@ -50,8 +52,6 @@ export class Home implements OnInit {
         'https://static.vecteezy.com/system/resources/thumbnails/019/766/250/small_2x/bajaj-logo-bajaj-icon-transparent-free-png.png',
     },
   ];
-
-  constructor(private productService: ProductService) {}
 
   async ngOnInit() {
     this.randomProducts = this.productService.randomProducts;

@@ -1,4 +1,5 @@
 import {
+  addDoc,
   collection,
   CollectionReference,
   doc,
@@ -22,6 +23,10 @@ export class UserService {
     this.firestore,
     'usuarios'
   ) as CollectionReference<User>;
+
+  constructor() {
+    // this.loadSeed();
+  }
 
   async getUser(email: string, password: string, role?: UserRole) {
     const filters = [
@@ -68,20 +73,30 @@ export class UserService {
 
   async loadSeed() {
     const userRef = collection(this.firestore, 'usuarios');
-    this.http.get<User[]>('data/users.json').subscribe(async (res) => {
+    this.http.get<User[]>('data/users.json').subscribe(async res => {
       for (const user of res) {
-        await setDoc(doc(userRef), {
+        const userDocRef = doc(userRef);
+        await setDoc(userDocRef, {
           nombre: user.nombre,
           apellido: user.apellido,
           email: user.email,
           password: user.password,
           telefono: user.telefono,
-          direccion: user.direccion,
           rol: user.rol,
           estado: user.estado,
           created_at: serverTimestamp(),
           updated_at: serverTimestamp(),
         });
+        if (user.direcciones && user.direcciones.length > 0) {
+          const direccionesRef = collection(userDocRef, 'direcciones');
+          for (const direccion of user.direcciones) {
+            await addDoc(direccionesRef, {
+              ...direccion,
+              created_at: serverTimestamp(),
+              updated_at: serverTimestamp(),
+            });
+          }
+        }
       }
     });
   }

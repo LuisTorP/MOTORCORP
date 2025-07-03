@@ -1,1 +1,120 @@
-<p>new-address-form works!</p>
+<div class="modal">
+  <div class="shipping-address">
+    <div class="shipping-address__header">
+      <div class="shipping-address__title">
+        <div class="shipping-address__pin">
+          <pin-icon class="icon" />
+        </div>
+        <div class="shipping-address__text">Nueva Dirección</div>
+      </div>
+      <div (click)="emitCloseForm()" class="shipping-address__close">
+        <close-icon class="icon" />
+      </div>
+    </div>
+
+    <form
+      [formGroup]="addressForm"
+      (ngSubmit)="sendForm()"
+      class="shipping-address__form">
+      <div class="shipping-address__group shipping-address__group-department">
+        <label class="shipping-address__label" for="state">
+          Departamento <span class="required">*</span>
+        </label>
+        <select
+          #state
+          formControlName="state"
+          class="shipping-address__select"
+          id="state"
+          (change)="onDepartmentChange(state.value)">
+          <option value="" disabled selected>Seleccione un departamento</option>
+          @for (department of departments(); track department.value) {
+          <option [value]="department.value">{{ department.label }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="shipping-address__group shipping-address__group-province">
+        <label class="shipping-address__label" for="province">
+          Provincia <span class="required">*</span>
+        </label>
+        <select
+          #province
+          formControlName="province"
+          class="shipping-address__select"
+          id="province"
+          (change)="onProvinceChange(province.value)">
+          <option value="" disabled selected>Seleccione una provincia</option>
+          @for (province of provinces; track province.value) {
+          <option [value]="province.value">{{ province.label }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="shipping-address__group shipping-address__group-district">
+        <label class="shipping-address__label" for="district"
+          >Distrito <span class="required">*</span></label
+        >
+        <select
+          formControlName="district"
+          class="shipping-address__select"
+          id="district">
+          <option value="" disabled selected>Seleccione un distrito</option>
+          @for (district of districts; track district.value) {
+          <option [value]="district.value">{{ district.label }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="shipping-address__group shipping-address__group-address">
+        <label class="shipping-address__label" for="address"
+          >Dirección <span class="required">*</span></label
+        >
+        <input
+          formControlName="address"
+          id="address"
+          class="shipping-address__input"
+          type="text"
+          placeholder="Ej. Av. Larco 123, Piso 2, Dpto. 201" />
+      </div>
+
+      <div class="shipping-address__group shipping-address__group-reference">
+        <label class="shipping-address__label" for="reference"
+          >Referencia</label
+        >
+        <input
+          formControlName="reference"
+          id="reference"
+          class="shipping-address__input"
+          type="text"
+          placeholder="Ej. Frente al parque, al lado del banco" />
+      </div>
+
+      <div class="shipping-address__group shipping-address__group-label">
+        <label class="shipping-address__label" for="label"
+          >Alias para esta dirección <span class="required">*</span></label
+        >
+        <input
+          formControlName="label"
+          id="label"
+          class="shipping-address__input"
+          formControlName="label"
+          type="text"
+          placeholder="Ej. Casa, Oficina, Casa de mamá" />
+      </div>
+      <div class="shipping-address__separator"></div>
+      <div class="shipping-address__navigator">
+        <button
+          (click)="emitCloseForm()"
+          type="button"
+          class="shipping-address__navigator__button shipping-address__navigator__button-back">
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="shipping-address__navigator__button shipping-address__navigator__button-continue">
+          Guardar Dirección
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
