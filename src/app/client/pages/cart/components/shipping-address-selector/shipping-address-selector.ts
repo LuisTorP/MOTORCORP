@@ -7,6 +7,7 @@ import { CheckCircleIcon } from '../../../../../shared/components/icons/check-ci
 import { UserAddIcon } from '../../../../../shared/components/icons/user-add-icon/user-add-icon';
 import { NewAddressForm } from '../new-address-form/new-address-form';
 import { EditIcon } from '../../../../../shared/components/icons/edit-icon/edit-icon';
+import { ShippingService } from '../../services/shipping.service';
 
 @Component({
   selector: 'shipping-address-selector',
@@ -17,7 +18,9 @@ import { EditIcon } from '../../../../../shared/components/icons/edit-icon/edit-
 export class ShippingAddressSelector {
   private addressService = inject(AddressService);
   private authService = inject(AuthService);
-  selectedAddress: MailingAddress | undefined = undefined;
+  private shippingService = inject(ShippingService);
+  selectedAddressToEdit: MailingAddress | undefined = undefined;
+  selectedAddress = this.shippingService.shippingAddress;
   addresses = this.addressService.addresses;
   user = this.authService.user;
   isFormOpenned = false;
@@ -47,6 +50,10 @@ export class ShippingAddressSelector {
 
   toggleForm(state: boolean, address: MailingAddress | undefined = undefined) {
     this.isFormOpenned = state;
-    this.selectedAddress = address;
+    this.selectedAddressToEdit = address;
+  }
+
+  changeShippingAddress(value: string) {
+    this.shippingService.selectShippingAddress(value);
   }
 }

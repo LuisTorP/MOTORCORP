@@ -26,12 +26,16 @@ export class ShippingService {
   ];
 
   private storageService = inject(StorageService);
-  private key = 'shipping';
+  private keyShippingMethod = 'shippingMethod';
+  private keyShippingAddress = 'shippingAddress';
 
   shippingMethod = signal<ShippingMethod>(this.loadShippingMethod());
+  shippingAddress = signal<string | null>(this.loadShippingAddress());
 
   private loadShippingMethod(): ShippingMethod {
-    const saved = this.storageService.getItem<ShippingMethod>(this.key);
+    const saved = this.storageService.getItem<ShippingMethod>(
+      this.keyShippingMethod
+    );
     if (saved && this.shippingMethods.some(m => m.id === saved.id)) {
       return saved;
     }
@@ -39,16 +43,32 @@ export class ShippingService {
     return freeMethod ? freeMethod : this.shippingMethods[0];
   }
 
+  private loadShippingAddress() {
+    const saved = this.storageService.getItem<string>(this.keyShippingAddress);
+    return saved ? saved : null;
+  }
+
   selectShippingMethod(method: ShippingMethod): void {
     if (this.shippingMethods.some(m => m === method)) {
       this.shippingMethod.set(method);
-      this.storageService.setItem(this.key, method);
+      this.storageService.setItem(this.keyShippingMethod, method);
+      if (method.price === 0) this.clearShippingAddress();
     }
   }
 
   clearShippingMethod(): void {
     const freeMethod = this.shippingMethods.find(m => m.price === 0);
     this.shippingMethod.set(freeMethod ? freeMethod : this.shippingMethods[0]);
-    localStorage.removeItem(this.key);
+    localStorage.removeItem(this.keyShippingMethod);
+  }
+
+  selectShippingAddress(address: string | null) {
+    this.shippingAddress.set(address);
+    this.storageService.setItem(this.keyShippingAddress, address);
+  }
+
+  clearShippingAddress() {
+    this.shippingAddress.set(null);
+    localStorage.removeItem(this.keyShippingAddress);
   }
 }

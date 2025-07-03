@@ -3,11 +3,11 @@ import {
   EventEmitter,
   inject,
   Input,
+  OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
 import { LocationService } from '../../../../../shared/services/location.service';
-import { Location } from '../../../../../shared/interfaces/location.interface';
 import { PinIcon } from '../../../../../shared/components/icons/pin-icon/pin-icon';
 import { CloseIcon } from '../../../../../shared/components/icons/close-icon/close-icon';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -21,7 +21,7 @@ import { AuthService } from '../../../auth/services/auth.service';
   templateUrl: './new-address-form.html',
   styleUrl: './new-address-form.scss',
 })
-export class NewAddressForm implements OnInit {
+export class NewAddressForm implements OnInit, OnDestroy {
   @Input() addressToEdit?: MailingAddress;
   @Output() closeForm = new EventEmitter();
 
@@ -31,13 +31,17 @@ export class NewAddressForm implements OnInit {
   private authService = inject(AuthService);
 
   user = this.authService.user;
+
   departments = this.locationService.departments;
-  provinces: Partial<Location>[] = [];
-  districts: Partial<Location>[] = [];
+  provinces = this.locationService.provinces;
+  districts = this.locationService.districts;
+
   addressForm = this.fb.group({
     state: ['', Validators.required],
     province: [{ value: '', disabled: true }, Validators.required],
+    // province: ['', Validators.required],
     district: [{ value: '', disabled: true }, Validators.required],
+    // district: ['', Validators.required],
     address: ['', Validators.required],
     reference: [''],
     label: ['', Validators.required],
@@ -47,17 +51,25 @@ export class NewAddressForm implements OnInit {
     this.setForm();
   }
 
+  ngOnDestroy(): void {
+    this.locationService.selectDepartment(null);
+    this.locationService.selectProvince(null);
+  }
+
   setForm() {
-    if (this.addressToEdit) {
-      this.onDepartmentChange(this.addressToEdit.departamento);
-      this.onProvinceChange(this.addressToEdit.provincia);
+    const address = this.addressToEdit;
+    if (address) {
+      this.selectDepartment(address.departamento);
+      this.selectProvince(address.provincia);
+      this.addressForm.get('province')?.enable();
+      this.addressForm.get('district')?.enable();
       this.addressForm.setValue({
-        address: this.addressToEdit.direccion,
-        state: this.addressToEdit.departamento,
-        district: this.addressToEdit.distrito,
-        label: this.addressToEdit.titulo,
-        province: this.addressToEdit.provincia,
-        reference: this.addressToEdit.referencia || '',
+        address: address.direccion,
+        state: address.departamento,
+        district: address.distrito,
+        label: address.titulo,
+        province: address.provincia,
+        reference: address.referencia || '',
       });
     }
   }
@@ -66,17 +78,24 @@ export class NewAddressForm implements OnInit {
     this.closeForm.emit();
   }
 
+  selectDepartment(department: string | null) {
+    this.locationService.selectDepartment(department);
+  }
+
+  selectProvince(department: string | null) {
+    this.locationService.selectProvince(department);
+  }
+
   onDepartmentChange(value: string) {
-    this.provinces = this.locationService.getProvinces(value);
+    this.selectDepartment(value);
     this.addressForm.get('province')?.enable();
     this.addressForm.get('province')?.reset('');
     this.addressForm.get('district')?.disable();
     this.addressForm.get('district')?.reset('');
-    this.districts = [];
   }
 
   onProvinceChange(value: string) {
-    this.districts = this.locationService.getDistricts(value);
+    this.selectProvince(value);
     this.addressForm.get('district')?.enable();
     this.addressForm.get('district')?.reset('');
   }
@@ -90,14 +109,24 @@ export class NewAddressForm implements OnInit {
     }
     const { address, district, label, province, reference, state } =
       this.addressForm.value;
-    await this.addressService.registerUserAddress(userData.id, {
+    const addressData: Partial<MailingAddress> = {
       direccion: address!,
       distrito: district!,
       titulo: label!,
       referencia: reference!,
       provincia: province!,
       departamento: state!,
-    });
+    };
+    const addressToEdit = this.addressToEdit;
+    if (addressToEdit) {
+      await this.addressService.updateUserAddress(
+        userData.id,
+        addressToEdit.id,
+        addressData
+      );
+    } else {
+      await this.addressService.registerUserAddress(userData.id, addressData);
+    }
     this.emitCloseForm();
   }
 }

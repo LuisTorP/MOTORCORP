@@ -5,7 +5,12 @@
     $last) {
     <div class="shipping-address__item">
       <div class="shipping-address__radio">
-        <input type="radio" name="mailingAddress" [value]="mailingAddress.id" />
+        <input
+          type="radio"
+          name="mailingAddress"
+          [value]="mailingAddress.id"
+          [checked]="selectedAddress()===mailingAddress.id"
+          (change)="changeShippingAddress(mailingAddress.id)" />
       </div>
       <div class="shipping-address__content">
         <div class="shipping-address__details">
@@ -56,5 +61,5 @@
 @if (isFormOpenned) {
 <new-address-form
   (closeForm)="toggleForm(false)"
-  [addressToEdit]="selectedAddress" />
+  [addressToEdit]="selectedAddressToEdit" />
 }

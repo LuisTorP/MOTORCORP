@@ -42,9 +42,13 @@ export class RegisterPage {
       rol: 'comprador',
       telefono: phone!,
     };
-    await this.userService.registerUser(userData);
-    delete userData.password;
-    this.authService.login(userData as User);
+    const newUser = await this.userService.registerUser(userData);
+    const newUserData = newUser.data() as User;
+    this.handleLogin(newUserData, newUser.id);
+  }
+
+  private handleLogin(user: User, id: string) {
+    this.authService.login({ ...user, id, password: '' });
     this.router.navigateByUrl(this.routes.client.home.root);
   }
 }

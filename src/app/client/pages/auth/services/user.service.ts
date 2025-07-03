@@ -3,6 +3,7 @@ import {
   collection,
   CollectionReference,
   doc,
+  getDoc,
   getDocs,
   query,
   serverTimestamp,
@@ -63,12 +64,13 @@ export class UserService {
       throw new Error('El correo electrónico ya está registrado');
     }
     const userRef = collection(this.firestore, 'usuarios');
-    await setDoc(doc(userRef), {
+    const newUserDoc = await addDoc(userRef, {
       ...userFormData,
       estado: 'activo',
       created_at: serverTimestamp(),
       updated_at: serverTimestamp(),
     });
+    return await getDoc(newUserDoc);
   }
 
   async loadSeed() {

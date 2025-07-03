@@ -44,7 +44,7 @@
           id="province"
           (change)="onProvinceChange(province.value)">
           <option value="" disabled selected>Seleccione una provincia</option>
-          @for (province of provinces; track province.value) {
+          @for (province of provinces(); track province.value) {
           <option [value]="province.value">{{ province.label }}</option>
           }
         </select>
@@ -59,7 +59,7 @@
           class="shipping-address__select"
           id="district">
           <option value="" disabled selected>Seleccione un distrito</option>
-          @for (district of districts; track district.value) {
+          @for (district of districts(); track district.value) {
           <option [value]="district.value">{{ district.label }}</option>
           }
         </select>
