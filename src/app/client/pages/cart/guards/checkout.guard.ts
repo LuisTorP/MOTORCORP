@@ -2,8 +2,18 @@ import { CanActivateFn, Router } from '@angular/router';
 import { APP_ROUTES } from '../../../../routes.constant';
 import { inject } from '@angular/core';
 import { ShippingService } from '../services/shipping.service';
+import { CartService } from '../services/cart.service';
 
 const routes = APP_ROUTES;
+
+export const cartProductsGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const cartService = inject(CartService);
+  const cartItems = cartService.products();
+  if (cartItems.length > 0) return true;
+  router.navigate([routes.client.cart.root]);
+  return false;
+};
 
 export const shippingMethodGuard: CanActivateFn = () => {
   const router = inject(Router);

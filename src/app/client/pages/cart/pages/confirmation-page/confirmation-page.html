@@ -1,1 +1,60 @@
-<p>confirmation-page works!</p>
+<div class="confirmation">
+  <div class="confirmation__header">
+    <div class="confirmation__icon"><check-circle-icon /></div>
+    <div class="confirmation__title">Confirmar Pedido</div>
+  </div>
+  <div class="confirmation__body">
+    <div class="confirmation__summary">
+      <div class="confirmation__payment__title">Resumen del Pedido</div>
+      <div class="confirmation__list">
+        @for (detail of cartDetails(); track detail.id) {
+        <confirmation-card [product]="detail" />
+        }
+      </div>
+    </div>
+
+    <div class="confirmation__data">
+      <div class="confirmation__address">
+        <div class="confirmation__address__title">Información de Envío</div>
+        <div class="confirmation__address__info">
+          <div class="confirmation__address__value">
+            {{userSignal()?.nombre}} {{userSignal()?.apellido}}
+          </div>
+          @if (shippingAddressSignal(); as address) {
+          <div class="confirmation__address__value">{{address.direccion}}</div>
+          <div class="confirmation__address__value">
+            {{getFormattedLocation(address) }}
+          </div>
+          } @else {
+          <div class="confirmation__address__value">Recojo en tienda</div>
+          <div class="confirmation__address__value">Disponible hoy</div>
+          }
+          <div class="confirmation__address__value">
+            +51 {{userSignal()?.telefono}}
+          </div>
+        </div>
+      </div>
+      <div class="confirmation__payment">
+        <div class="confirmation__payment__title">Método de Pago</div>
+        <div class="confirmation__payment__info">
+          <div class="confirmation__payment__value">
+            💳 Tarjeta terminada en **** **** ****
+            {{paymentMethodSignal()?.cardNumber?.toString()?.slice(-4)}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="navigator">
+  <button
+    [routerLink]="routes.client.cart.checkout.payment"
+    class="navigator__button navigator__button-back">
+    Volver
+  </button>
+  <button
+    (click)="completePruchase()"
+    class="navigator__button navigator__button-continue">
+    Realizar compra
+  </button>
+</div>

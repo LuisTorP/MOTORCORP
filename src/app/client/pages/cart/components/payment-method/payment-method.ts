@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CreditCardIcon } from '../../../../../shared/components/icons/credit-card-icon/credit-card-icon';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { APP_ROUTES } from '../../../../../routes.constant';
 import { ShieldIcon } from '../../../../../shared/components/icons/shield-icon/shield-icon';
 import {
@@ -16,9 +16,11 @@ import { PaymentMethod as PM } from '../../interfaces/shipping.interface';
   templateUrl: './payment-method.html',
   styleUrl: './payment-method.scss',
 })
-export class PaymentMethod {
+export class PaymentMethod implements OnInit {
   private fb = inject(NonNullableFormBuilder);
   private shippingService = inject(ShippingService);
+  private router = inject(Router);
+  paymentMethodSignal = this.shippingService.paymentMethod;
   routes = APP_ROUTES;
   paymentForm = this.fb.group({
     cardNumber: ['', Validators.required],
@@ -27,6 +29,16 @@ export class PaymentMethod {
     safeCode: ['', Validators.required],
   });
 
+  ngOnInit(): void {
+    this.setForm();
+  }
+
+  setForm() {
+    const paymentMethodData = this.paymentMethodSignal();
+    if (!paymentMethodData) return;
+    this.paymentForm.reset(paymentMethodData);
+  }
+
   sendPayment() {
     if (this.paymentForm.invalid) {
       this.paymentForm.markAllAsTouched();
@@ -34,5 +46,6 @@ export class PaymentMethod {
     }
     const values = this.paymentForm.value as PM;
     this.shippingService.selectPaymentMethod(values);
+    this.router.navigate([this.routes.client.cart.checkout.confirmation]);
   }
 }

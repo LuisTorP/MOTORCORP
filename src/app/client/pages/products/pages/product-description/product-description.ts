@@ -56,7 +56,7 @@ export class ProductDescription implements OnInit, OnChanges {
 
   addProductToCart() {
     const product = this.product();
-    if (!product) return;
+    if (!product || product?.stock === 0) return;
     this.cartService.addProduct(product);
     this.router.navigateByUrl(this.routes.client.cart.root);
   }

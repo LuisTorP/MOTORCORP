@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {
+  cartProductsGuard,
   paymentMethodGuard,
   shippingAddressGuard,
   shippingMethodGuard,
@@ -34,6 +35,7 @@ export const cartRoutes: Routes = [
               import('./pages/shipping-page/shipping-page').then(
                 c => c.ShippingPage
               ),
+            canActivate: [cartProductsGuard],
           },
           {
             path: 'payment',
@@ -41,7 +43,11 @@ export const cartRoutes: Routes = [
               import('./pages/payment-page/payment-page').then(
                 c => c.PaymentPage
               ),
-            canActivate: [shippingMethodGuard, shippingAddressGuard],
+            canActivate: [
+              cartProductsGuard,
+              shippingMethodGuard,
+              shippingAddressGuard,
+            ],
           },
           {
             path: 'confirmation',
@@ -50,6 +56,7 @@ export const cartRoutes: Routes = [
                 c => c.ConfirmationPage
               ),
             canActivate: [
+              cartProductsGuard,
               shippingMethodGuard,
               shippingAddressGuard,
               paymentMethodGuard,

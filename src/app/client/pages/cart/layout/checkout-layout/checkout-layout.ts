@@ -7,10 +7,19 @@ import { NgComponentOutlet } from '@angular/common';
 import { TruckIcon } from '../../../../../shared/components/icons/shipping-icon/truck-icon';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
+import { PaymentDetails } from '../../components/payment-details/payment-details';
+import { PaymentGuarantees } from '../../components/payment-guarantees/payment-guarantees';
+import { PaymentBenefits } from '../../components/payment-benefits/payment-benefits';
 
 @Component({
   selector: 'checkout-layout',
-  imports: [RouterModule, NgComponentOutlet],
+  imports: [
+    RouterModule,
+    NgComponentOutlet,
+    PaymentDetails,
+    PaymentGuarantees,
+    PaymentBenefits,
+  ],
   templateUrl: './checkout-layout.html',
   styleUrl: './checkout-layout.scss',
 })
