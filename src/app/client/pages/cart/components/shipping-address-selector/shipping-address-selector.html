@@ -9,8 +9,8 @@
           type="radio"
           name="mailingAddress"
           [value]="mailingAddress.id"
-          [checked]="selectedAddress()===mailingAddress.id"
-          (change)="changeShippingAddress(mailingAddress.id)" />
+          [checked]="selectedAddress()?.id ===mailingAddress.id"
+          (change)="changeShippingAddress(mailingAddress)" />
       </div>
       <div class="shipping-address__content">
         <div class="shipping-address__details">

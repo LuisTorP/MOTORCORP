@@ -20,18 +20,20 @@
       <div class="payment-details__label">Subtotal</div>
       <div class="payment-details__value">S/. {{totalPrice()}}</div>
     </div>
+    @if (shippingMethod(); as sm) {
     <div class="payment-details__row">
       <div class="payment-details__label">Envio</div>
       <div class="payment-details__value">
-        {{shippingMethod().price ===0? 'Gratis': 'S/. '+
-        shippingMethod().price}}
+        {{sm.price ===0? 'Gratis': 'S/. '+ sm.price}}
       </div>
     </div>
+    }
+
     <div class="payment-details__separator"></div>
     <div class="payment-details__row payment-details__row--total">
       <div class="payment-details__label">Total</div>
       <div class="payment-details__value">
-        S/. {{totalPrice()+ shippingMethod().price}}
+        S/. {{totalPrice()+ (shippingMethod()?.price || 0)}}
       </div>
     </div>
   </div>

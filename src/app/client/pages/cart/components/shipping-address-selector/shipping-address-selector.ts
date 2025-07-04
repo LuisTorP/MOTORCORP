@@ -53,7 +53,7 @@ export class ShippingAddressSelector {
     this.selectedAddressToEdit = address;
   }
 
-  changeShippingAddress(value: string) {
+  changeShippingAddress(value: MailingAddress) {
     this.shippingService.selectShippingAddress(value);
   }
 }

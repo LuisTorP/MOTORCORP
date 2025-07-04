@@ -1,10 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { APP_ROUTES } from '../../../../../routes.constant';
 import { PaymentIcon } from '../../../../../shared/components/icons/payment-icon/payment-icon';
 import { ConfirmationIcon } from '../../../../../shared/components/icons/confirmation-icon/confirmation-icon';
 import { NgComponentOutlet } from '@angular/common';
 import { TruckIcon } from '../../../../../shared/components/icons/shipping-icon/truck-icon';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'checkout-layout',
@@ -34,9 +36,18 @@ export class CheckoutLayout {
     },
   ];
 
+  currentUrl = toSignal(
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map((e: NavigationEnd) => e.urlAfterRedirects),
+      startWith(this.router.url)
+    ),
+    { initialValue: this.router.url }
+  );
+
   currentStepIndex = computed(() => {
-    const url = this.router.url;
-    return this.steps.findIndex((step) => url.startsWith(step.path));
+    const url = this.currentUrl();
+    return this.steps.findIndex(step => url.startsWith(step.path));
   });
 
   isStepActive(index: number): boolean {

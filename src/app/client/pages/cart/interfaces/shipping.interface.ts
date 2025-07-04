@@ -18,3 +18,10 @@ export interface MailingAddress {
   updated_at: Timestamp;
   estado: 'activo' | 'inactivo';
 }
+
+export interface PaymentMethod {
+  cardNumber: string;
+  owner: string;
+  expiration: string;
+  safeCode: string;
+}

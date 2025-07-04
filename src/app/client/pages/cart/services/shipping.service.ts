@@ -1,6 +1,10 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { StorageService } from '../../../../shared/services/storage.service';
-import { ShippingMethod } from '../interfaces/shipping.interface';
+import {
+  MailingAddress,
+  PaymentMethod,
+  ShippingMethod,
+} from '../interfaces/shipping.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ShippingService {
@@ -28,24 +32,22 @@ export class ShippingService {
   private storageService = inject(StorageService);
   private keyShippingMethod = 'shippingMethod';
   private keyShippingAddress = 'shippingAddress';
+  private keyPaymentMethod = 'paymentMethod';
 
-  shippingMethod = signal<ShippingMethod>(this.loadShippingMethod());
-  shippingAddress = signal<string | null>(this.loadShippingAddress());
+  shippingMethod = signal<ShippingMethod | null>(this.loadShippingMethod());
+  shippingAddress = signal<MailingAddress | null>(this.loadShippingAddress());
+  paymentMethod = signal<PaymentMethod | null>(this.loadPaymentMethod());
 
-  private loadShippingMethod(): ShippingMethod {
-    const saved = this.storageService.getItem<ShippingMethod>(
-      this.keyShippingMethod
-    );
-    if (saved && this.shippingMethods.some(m => m.id === saved.id)) {
-      return saved;
-    }
-    const freeMethod = this.shippingMethods.find(m => m.price === 0);
-    return freeMethod ? freeMethod : this.shippingMethods[0];
+  private loadShippingMethod(): ShippingMethod | null {
+    return this.storageService.getItem<ShippingMethod>(this.keyShippingMethod);
   }
 
   private loadShippingAddress() {
-    const saved = this.storageService.getItem<string>(this.keyShippingAddress);
-    return saved ? saved : null;
+    return this.storageService.getItem<MailingAddress>(this.keyShippingAddress);
+  }
+
+  private loadPaymentMethod() {
+    return this.storageService.getItem<PaymentMethod>(this.keyPaymentMethod);
   }
 
   selectShippingMethod(method: ShippingMethod): void {
@@ -57,18 +59,27 @@ export class ShippingService {
   }
 
   clearShippingMethod(): void {
-    const freeMethod = this.shippingMethods.find(m => m.price === 0);
-    this.shippingMethod.set(freeMethod ? freeMethod : this.shippingMethods[0]);
-    localStorage.removeItem(this.keyShippingMethod);
+    this.shippingMethod.set(null);
+    this.storageService.removeItem(this.keyShippingMethod);
   }
 
-  selectShippingAddress(address: string | null) {
+  selectShippingAddress(address: MailingAddress | null) {
     this.shippingAddress.set(address);
     this.storageService.setItem(this.keyShippingAddress, address);
   }
 
   clearShippingAddress() {
     this.shippingAddress.set(null);
-    localStorage.removeItem(this.keyShippingAddress);
+    this.storageService.removeItem(this.keyShippingAddress);
+  }
+
+  selectPaymentMethod(paymentMethod: PaymentMethod | null) {
+    this.paymentMethod.set(paymentMethod);
+    this.storageService.setItem(this.keyPaymentMethod, paymentMethod);
+  }
+
+  clearPaymentMethod() {
+    this.paymentMethod.set(null);
+    this.storageService.removeItem(this.keyPaymentMethod);
   }
 }

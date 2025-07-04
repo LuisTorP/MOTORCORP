@@ -9,19 +9,20 @@
   </div>
   <div class="shipping__body">
     <shipping-method-selector />
-    @if (shippingMethod().price>0) {
+    @if (shippingMethod(); as sm) { @if (sm.price>0) {
     <shipping-address-selector />
-    }
+    } }
   </div>
 </div>
 <div class="navigator">
-  <button class="navigator__button navigator__button-back disabled">
+  <button
+    [routerLink]="routes.client.cart.root"
+    class="navigator__button navigator__button-back">
     Volver
   </button>
   <button
     [routerLink]="routes.client.cart.checkout.payment"
-    class="navigator__button navigator__button-continue"
-  >
+    class="navigator__button navigator__button-continue">
     Continuar
   </button>
 </div>
