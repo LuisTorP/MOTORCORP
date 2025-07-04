@@ -1,1 +1,18 @@
-<p>product-description works!</p>
+<div class="product">
+  @if (product(); as prod) {
+  <h2>Detalle de producto - {{prod.id}}</h2>
+  <form class="product__form" [formGroup]="productForm">
+    <input type="text" formControlName="name" />
+    <input type="text" formControlName="marc" />
+    <textarea type="text" formControlName="description"></textarea>
+    <input type="text" formControlName="model" />
+    <input type="number" formControlName="stock" />
+    <input type="number" formControlName="price" />
+    <select formControlName="type">
+      <option value="moto">Moto</option>
+      <option value="accesorio">Accesorio</option>
+      <option value="respuesto">Repuesto</option>
+    </select>
+  </form>
+  }
+</div>

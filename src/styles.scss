@@ -158,3 +158,28 @@ table {
     }
   }
 }
+
+.ng-valid[required],
+.ng-valid.required {
+  border: 2px solid #42a948;
+}
+.ng-invalid:not(form) {
+  border: 2px solid #a94442;
+}
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+select {
+  width: 100%;
+  padding: 0.5rem;
+}

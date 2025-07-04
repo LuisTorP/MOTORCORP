@@ -1,6 +1,7 @@
 import {
   Component,
   inject,
+  Input,
   input,
   OnChanges,
   OnInit,
@@ -11,19 +12,27 @@ import {
   ProductType,
 } from '../../../../../client/pages/products/interfaces/product.interface';
 import { ProductService } from '../../../../../client/pages/products/services/product.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+} from '@angular/router';
 import { Paginator } from '../../../../components/paginator/paginator';
 import { QueryDocumentSnapshot } from 'firebase/firestore';
+import { APP_ROUTES } from '../../../../../routes.constant';
 
 @Component({
   selector: 'app-product-list',
-  imports: [Paginator],
+  imports: [Paginator, RouterLink, RouterLinkActive],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
 })
 export class ProductList implements OnInit, OnChanges {
-  search!: string;
-  type = input<ProductType>();
+  @Input() search!: string;
+  @Input() type!: ProductType;
+
+  routes = APP_ROUTES;
 
   page = 1;
   isLastPage = false;
@@ -41,10 +50,35 @@ export class ProductList implements OnInit, OnChanges {
       const type = params['type'] as ProductType | undefined;
       const search = params['search'] || '';
 
-      if (newPage > 1 && this.lastDocs.length < newPage - 1) {
+      if (search) {
+        // 1. Carga todos los productos (o por tipo)
+        let allProducts: Product[] = [];
+        if (type) {
+          // Si tienes muchos productos por tipo, podrías paginar aquí también
+          const result = await this.productService.getProducts(type, 1000); // Ajusta el límite si es necesario
+          allProducts = result.products;
+        } else {
+          const result = await this.productService.getProducts(undefined, 1000);
+          allProducts = result.products;
+        }
+        // 2. Filtra en memoria
+        const filtered = allProducts.filter((product) =>
+          product.nombre.toLowerCase().includes(search.trim().toLowerCase())
+        );
+        this.productService.products.set(filtered);
+
+        // 3. Desactiva paginación
+        this.isLastPage = true;
+        this.page = 1;
         this.lastDocs = [];
-        let lastDoc: QueryDocumentSnapshot<Product> | undefined = undefined;
-        for (let i = 1; i < newPage; i++) {
+        return;
+      }
+
+      // --- Paginación normal Firestore ---
+      if (newPage > 1 && this.lastDocs.length < newPage - 1) {
+        let lastDoc: QueryDocumentSnapshot<Product> | undefined =
+          this.lastDocs[this.lastDocs.length - 1];
+        for (let i = this.lastDocs.length + 1; i < newPage; i++) {
           const result = await this.productService.getProducts(
             type,
             15,
@@ -72,16 +106,13 @@ export class ProductList implements OnInit, OnChanges {
       }
 
       this.page = newPage;
-
-      if (search) {
-        await this.productService.filterProducts(search);
-      }
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['search'] && !changes['search'].isFirstChange()) {
       this.productService.filterProducts(this.search);
+      this.isLastPage = true;
       this.lastDocs = [];
       this.page = 1;
     }

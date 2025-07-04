@@ -1,0 +1,15 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+input {
+  padding: 8px 12px;
+  border-radius: 4px;
+}
