@@ -1,5 +1,4 @@
-import { Component, computed, inject, Input, signal } from '@angular/core';
-import { CartDetail } from '../../interfaces/cart.interface';
+import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ShippingService } from '../../services/shipping.service';
 

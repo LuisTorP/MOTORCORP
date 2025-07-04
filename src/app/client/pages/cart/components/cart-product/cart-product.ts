@@ -1,5 +1,4 @@
 import { Component, inject, Input } from '@angular/core';
-import { Product } from '../../../products/interfaces/product.interface';
 import { CartDetail } from '../../interfaces/cart.interface';
 import { CartService } from '../../services/cart.service';
 

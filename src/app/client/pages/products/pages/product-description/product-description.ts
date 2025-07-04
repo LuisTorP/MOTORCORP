@@ -50,13 +50,13 @@ export class ProductDescription implements OnInit, OnChanges {
   }
 
   async getProduct(id: string) {
-    const product = await this.productService.getProductById(this.productId);
+    const product = await this.productService.getProductById(id);
     this.product.set(product);
   }
 
   addProductToCart() {
     const product = this.product();
-    if (!product) return;
+    if (!product || product?.stock === 0) return;
     this.cartService.addProduct(product);
     this.router.navigateByUrl(this.routes.client.cart.root);
   }

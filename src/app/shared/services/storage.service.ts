@@ -7,7 +7,8 @@ import { PlatformService } from './platform.service';
 export class StorageService {
   private platformService = inject(PlatformService);
 
-  setItem(key: string, value: any, useSession: boolean = false): void {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setItem(key: string, value: any, useSession = false): void {
     if (this.platformService.isServer()) return;
     const data = JSON.stringify(value);
     if (useSession) {
@@ -17,7 +18,7 @@ export class StorageService {
     }
   }
 
-  getItem<T>(key: string, useSession: boolean = false): T | null {
+  getItem<T>(key: string, useSession = false): T | null {
     if (this.platformService.isServer()) return null;
     const storage = useSession ? sessionStorage : localStorage;
     const data = storage.getItem(key);
@@ -31,13 +32,13 @@ export class StorageService {
     }
   }
 
-  removeItem(key: string, useSession: boolean = false): void {
+  removeItem(key: string, useSession = false): void {
     if (this.platformService.isServer()) return;
     const storage = useSession ? sessionStorage : localStorage;
     storage.removeItem(key);
   }
 
-  clear(useSession: boolean = false): void {
+  clear(useSession = false): void {
     if (this.platformService.isServer()) return;
     const storage = useSession ? sessionStorage : localStorage;
     storage.clear();

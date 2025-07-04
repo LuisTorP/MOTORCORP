@@ -3,18 +3,15 @@ import {
   collection,
   CollectionReference,
   doc,
-  getCountFromServer,
   getDoc,
   getDocs,
   limit,
-  orderBy,
   query,
   Query,
   QueryDocumentSnapshot,
   serverTimestamp,
   setDoc,
   startAfter,
-  startAt,
   where,
 } from 'firebase/firestore';
 import { DocumentData } from '@angular/fire/compat/firestore';
@@ -26,6 +23,8 @@ import { CartItem } from '../../cart/interfaces/cart.interface';
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private firestore = inject(Firestore);
+  private http = inject(HttpClient);
+
   productsCollection = collection(
     this.firestore,
     'productos'
@@ -34,11 +33,9 @@ export class ProductService {
   allProducts = signal<Product[]>([]);
   randomProducts = signal<Product[]>([]);
 
-  constructor(private http: HttpClient) {}
-
   async getProducts(
     type?: ProductType,
-    pageSize: number = 40,
+    pageSize = 40,
     lastDoc?: QueryDocumentSnapshot<Product>
   ) {
     let q: Query<Product, DocumentData> = this.productsCollection;
@@ -50,7 +47,7 @@ export class ProductService {
       q = query(q, startAfter(lastDoc));
     }
     const data = await getDocs(q);
-    const products = [...data.docs.map((d) => ({ ...d.data(), id: d.id }))];
+    const products = [...data.docs.map(d => ({ ...d.data(), id: d.id }))];
     this.products.set(products);
     this.allProducts.set(products);
     return {
@@ -77,7 +74,7 @@ export class ProductService {
       this.products.set(this.allProducts());
       return;
     }
-    const filtered = this.allProducts().filter((product) =>
+    const filtered = this.allProducts().filter(product =>
       product.nombre.toLowerCase().includes(term.trim().toLowerCase())
     );
     this.products.set(filtered);
@@ -137,7 +134,7 @@ export class ProductService {
 
   async loadSeed() {
     const prodRef = collection(this.firestore, 'productos');
-    this.http.get<Product[]>('data/products.json').subscribe(async (res) => {
+    this.http.get<Product[]>('data/products.json').subscribe(async res => {
       for (const product of res) {
         await setDoc(doc(prodRef), {
           nombre: product.nombre,

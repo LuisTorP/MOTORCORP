@@ -1,0 +1,80 @@
+<form [formGroup]="paymentForm" (ngSubmit)="sendPayment()">
+  <div class="payment-method">
+    <div class="payment-method__header">
+      <div class="payment-method__icon"><credit-card-icon /></div>
+      <div class="payment-method__title">Información de Pago</div>
+    </div>
+    <div class="payment-method__body">
+      <div class="payment-method__form">
+        <div class="payment-method__group payment-method__group-card-number">
+          <label class="payment-method__label" for="card-number">
+            Número de Tarjeta <span>*</span>
+          </label>
+          <input
+            formControlName="cardNumber"
+            id="card-number"
+            class="payment-method__input"
+            type="number"
+            placeholder="1234 5678 9012 3456" />
+        </div>
+        <div class="payment-method__group payment-method__group-owner">
+          <label class="payment-method__label" for="owner">
+            Nombre del Titular <span>*</span>
+          </label>
+          <input
+            formControlName="owner"
+            id="owner"
+            class="payment-method__input"
+            type="text"
+            placeholder="Como aparece en la tarjeta" />
+        </div>
+        <div class="payment-method__group payment-method__group-expiration">
+          <label class="payment-method__label" for="expiration">
+            Vencimiento <span>*</span>
+          </label>
+          <input
+            formControlName="expiration"
+            id="expiration"
+            class="payment-method__input"
+            type="text"
+            placeholder="MM/AA" />
+        </div>
+        <div class="payment-method__group payment-method__group-safe-code">
+          <label class="payment-method__label" for="safe-code">
+            Código de Seguridad <span>*</span>
+          </label>
+          <input
+            formControlName="safeCode"
+            id="safe-code"
+            class="payment-method__input"
+            type="numer"
+            placeholder="1234" />
+        </div>
+      </div>
+      <div class="payment-method__secure">
+        <div class="payment-method__secure-icon">
+          <shield-icon class="icon" />
+        </div>
+        <div class="payment-method__secure-info">
+          <div class="payment-method__secure-title">Pago Seguro</div>
+          <div class="payment-method__secure-description">
+            Tu información está protegida con encriptación SSL de 256 bits.
+            Aceptamos Visa, Mastercard y American Express.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navigator">
+    <button
+      [routerLink]="routes.client.cart.checkout.shipping"
+      type="button"
+      class="navigator__button navigator__button-back">
+      Volver
+    </button>
+    <button type="submit" class="navigator__button navigator__button-continue">
+      Continuar
+    </button>
+    <!-- [routerLink]="routes.client.cart.checkout.confirmation" -->
+  </div>
+</form>

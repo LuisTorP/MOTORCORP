@@ -27,9 +27,15 @@ export class CartService {
     this.storageService.setItem(this.key, this.products());
   }
 
+  clearCart() {
+    this.storageService.removeItem(this.key);
+    this.cartDetails.set([]);
+  }
+
   addProduct(product: Product): void {
+    if (product.stock === 0) return;
     const currentCart = this.products();
-    const existing = currentCart.find((p) => p.id === product.id);
+    const existing = currentCart.find(p => p.id === product.id);
     if (existing && existing?.quantity < product.stock) {
       existing.quantity += 1;
     } else if (!existing) {
@@ -40,7 +46,7 @@ export class CartService {
   }
 
   removeProduct(productId: string): void {
-    const updatedCart = this.products().filter((p) => p.id !== productId);
+    const updatedCart = this.products().filter(p => p.id !== productId);
     this.products.set(updatedCart);
     this.refreshCartDetails();
     this.saveCart();
@@ -48,7 +54,7 @@ export class CartService {
 
   updateQuantity(productId: string, newQuantity: number, stock: number) {
     const validQuantity = Math.max(1, Math.min(newQuantity, stock));
-    const updatedCart = this.products().map((item) => {
+    const updatedCart = this.products().map(item => {
       if (item.id === productId) {
         return { ...item, quantity: validQuantity };
       }
@@ -63,8 +69,8 @@ export class CartService {
     const cartItems = this.products();
     const cartDetails = this.cartDetails();
 
-    const merged: CartDetail[] = cartDetails.flatMap((detail) => {
-      const exist = cartItems.find((item) => item.id === detail.id);
+    const merged: CartDetail[] = cartDetails.flatMap(detail => {
+      const exist = cartItems.find(item => item.id === detail.id);
       return exist ? [{ ...detail, quantity: exist.quantity }] : [];
     });
     this.cartDetails.set(merged);

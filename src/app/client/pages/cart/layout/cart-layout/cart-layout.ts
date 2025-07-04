@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../../products/services/product.service';
@@ -10,7 +10,7 @@ import { CartDetail } from '../../interfaces/cart.interface';
   templateUrl: './cart-layout.html',
   styleUrl: './cart-layout.scss',
 })
-export class CartLayout {
+export class CartLayout implements OnInit, OnDestroy {
   private cartService = inject(CartService);
   private productService = inject(ProductService);
   cartItems = this.cartService.products;
@@ -27,8 +27,8 @@ export class CartLayout {
   async getProducts() {
     const items = this.cartItems();
     const products = await this.productService.getProductsByIds(items);
-    const merged: CartDetail[] = products.map((product) => {
-      const item = items.find((i) => i.id === product.id);
+    const merged: CartDetail[] = products.map(product => {
+      const item = items.find(i => i.id === product.id);
       return {
         ...product,
         quantity: item?.quantity || 1,

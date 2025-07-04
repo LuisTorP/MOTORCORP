@@ -1,1 +1,65 @@
-<p>shipping-address-selector works!</p>
+<div class="shipping-address">
+  <div class="shipping-address__title">Seleccionar dirección de envío</div>
+  <div class="shipping-address__list">
+    @for (mailingAddress of addresses(); track mailingAddress.id; let last =
+    $last) {
+    <div class="shipping-address__item">
+      <div class="shipping-address__radio">
+        <input
+          type="radio"
+          name="mailingAddress"
+          [value]="mailingAddress.id"
+          [checked]="selectedAddress()?.id ===mailingAddress.id"
+          (change)="changeShippingAddress(mailingAddress)" />
+      </div>
+      <div class="shipping-address__content">
+        <div class="shipping-address__details">
+          <div class="shipping-address__label">{{mailingAddress.titulo}}</div>
+          <div class="shipping-address__note">
+            {{mailingAddress.direccion}} @if(mailingAddress.referencia){
+            ({{mailingAddress.referencia}}) }
+          </div>
+          <div class="shipping-address__note">
+            {{getFormattedLocation(mailingAddress)}}
+          </div>
+        </div>
+        <div
+          (click)="toggleForm(true,mailingAddress)"
+          class="shipping-address__edit">
+          <edit-icon class="icon" />
+        </div>
+      </div>
+    </div>
+    @if (last) {
+    <button (click)="toggleForm(true)" class="shipping-address__empty-button">
+      <user-add-icon class="icon" />
+      Agregar nueva dirección</button
+    >} } @empty {
+    <div class="shipping-address__empty">
+      <div class="shipping-address__empty-icon">
+        <truck-icon class="icon" />
+      </div>
+      <div class="shipping-address__empty-title">
+        ¡Bienvenido de vuelta, {{ user()?.nombre }}!
+      </div>
+      <div class="shipping-address__empty-message">
+        Parece que es tu primera compra con nosotros. Vamos a configurar tu
+        dirección de envío.
+      </div>
+      <div class="shipping-address__empty-note">
+        <check-circle-icon class="icon" /> Se guardará automáticamente para
+        futuras compras
+      </div>
+      <button (click)="toggleForm(true)" class="shipping-address__empty-button">
+        <user-add-icon class="icon" />
+        Agregar nueva dirección
+      </button>
+    </div>
+    }
+  </div>
+</div>
+@if (isFormOpenned) {
+<new-address-form
+  (closeForm)="toggleForm(false)"
+  [addressToEdit]="selectedAddressToEdit" />
+}

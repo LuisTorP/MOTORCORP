@@ -3,20 +3,49 @@
     "nombre": "Ana",
     "apellido": "Pérez",
     "email": "ana.admin@example.com",
-    "password": "$2a$10$abc123encriptadoadmin",
+    "password": "renzo@1",
     "telefono": "987654321",
-    "direccion": "Av. Central 123, Lima",
     "rol": "admin",
-    "estado": "activo"
+    "estado": "activo",
+    "direcciones": [
+      {
+        "titulo": "Oficina",
+        "departamento": "Lima",
+        "provincia": "Lima",
+        "distrito": "San Isidro",
+        "direccion": "Av. Arequipa 1234",
+        "referencia": "Edificio Torre Central, Piso 5",
+        "estado": "activo"
+      },
+      {
+        "titulo": "Casa",
+        "departamento": "Lima",
+        "provincia": "Lima",
+        "distrito": "Surco",
+        "direccion": "Calle Los Cedros 456",
+        "referencia": "Frente al parque",
+        "estado": "activo"
+      }
+    ]
   },
   {
     "nombre": "Luis",
     "apellido": "Gómez",
     "email": "luis.compra@example.com",
-    "password": "$2a$10$xyz789encriptadocomprador",
+    "password": "renzo@1",
     "telefono": "912345678",
-    "direccion": "Calle Falsa 456, Arequipa",
     "rol": "comprador",
-    "estado": "activo"
+    "estado": "activo",
+    "direcciones": [
+      {
+        "titulo": "Casa",
+        "departamento": "Arequipa",
+        "provincia": "Arequipa",
+        "distrito": "Cercado",
+        "direccion": "Jr. Los Álamos 789",
+        "referencia": "A una cuadra del hospital",
+        "estado": "activo"
+      }
+    ]
   }
 ]

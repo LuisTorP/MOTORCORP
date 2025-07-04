@@ -1,0 +1,17 @@
+<div class="product">
+  <div class="product__image">
+    <img [src]="product.miniatura" [alt]="product.nombre" />
+  </div>
+  <div class="product__details">
+    <div class="product__header">
+      <div class="product__info">
+        <div class="product__name">{{product.nombre}}</div>
+        <div class="product__brand">Marca: {{product.marca}}</div>
+        <div class="product__quantity">Cantidad: {{product.quantity}}</div>
+      </div>
+    </div>
+    <div class="product__subtotal">
+      S/. {{ product.precio * product.quantity }}
+    </div>
+  </div>
+</div>

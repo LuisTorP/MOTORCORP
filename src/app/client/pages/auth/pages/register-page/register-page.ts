@@ -24,30 +24,31 @@ export class RegisterPage {
     name: ['', Validators.required],
     surnames: ['', Validators.required],
     phone: ['', Validators.required],
-    address: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
 
   async register() {
     if (this.registerForm.invalid) {
-      this.registerForm.markAllAsTouched;
+      this.registerForm.markAllAsTouched();
       return;
     }
-    const { name, surnames, email, password, phone, address } =
-      this.registerForm.value;
+    const { name, surnames, email, password, phone } = this.registerForm.value;
     const userData: Partial<User> = {
       apellido: surnames!.trim(),
-      direccion: address!.trim(),
       email: email!.trim(),
       nombre: name!.trim(),
       password: password!.trim(),
       rol: 'comprador',
-      telefono: phone!.trim(),
+      telefono: phone!,
     };
-    await this.userService.registerUser(userData);
-    delete userData.password;
-    this.authService.login(userData as User);
+    const newUser = await this.userService.registerUser(userData);
+    const newUserData = newUser.data() as User;
+    this.handleLogin(newUserData, newUser.id);
+  }
+
+  private handleLogin(user: User, id: string) {
+    this.authService.login({ ...user, id, password: '' });
     this.router.navigateByUrl(this.routes.client.home.root);
   }
 }

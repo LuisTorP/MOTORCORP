@@ -1,0 +1,55 @@
+.product {
+  padding: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  &__image {
+    flex-shrink: 0;
+    img {
+      border-radius: 0.5rem;
+      // border: 1px solid #e4e5eb;
+      background-color: #eaeaea;
+      width: 4rem;
+      aspect-ratio: 4/4;
+      object-fit: contain;
+    }
+  }
+  &__details {
+    flex: 1 1 0%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  &__name {
+    color: #111827;
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  &__brand {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  &__quantity {
+    color: #09090b;
+    font-size: 0.875rem;
+  }
+
+  &__subtotal {
+    text-align: right;
+    color: rgb(17 24 39);
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+}

@@ -8,9 +8,8 @@
           type="radio"
           name="shippingMethod"
           [value]="method.id"
-          [checked]="shippingMethod().id===method.id"
-          (change)="changeShippingMethod(method)"
-        />
+          [checked]="shippingMethod()?.id===method.id"
+          (change)="changeShippingMethod(method)" />
       </div>
 
       <div class="shipping-methods__content">

@@ -1,10 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ProductService } from '../../../products/services/product.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { StorageService } from '../../../../../shared/services/storage.service';
 import { APP_ROUTES } from '../../../../../routes.constant';
 import { User } from '../../interfaces/user.interface';
 
@@ -14,12 +12,10 @@ import { User } from '../../interfaces/user.interface';
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   private fb = inject(FormBuilder);
   private router = inject(Router);
-
   private authService = inject(AuthService);
-  private storageService = inject(StorageService);
   private userService = inject(UserService);
 
   routes = APP_ROUTES;
@@ -29,14 +25,9 @@ export class LoginPage implements OnInit {
     password: ['', Validators.required],
   });
 
-  ngOnInit(): void {
-    // this.userService.loadSeed();
-    // this.productService.loadSeed();
-  }
-
   async login() {
     if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched;
+      this.loginForm.markAllAsTouched();
       return;
     }
     const { email, password } = this.loginForm.value;

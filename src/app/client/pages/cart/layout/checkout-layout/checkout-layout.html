@@ -16,4 +16,15 @@
   </div>
 </div>
 
-<router-outlet></router-outlet>
+<div class="mc-container">
+  <div class="checkout">
+    <div class="checkout__details">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="checkout__summary">
+      <payment-details />
+      <payment-guarantees />
+      <payment-benefits />
+    </div>
+  </div>
+</div>
