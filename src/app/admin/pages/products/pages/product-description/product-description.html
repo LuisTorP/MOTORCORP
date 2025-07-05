@@ -2,17 +2,74 @@
   @if (product(); as prod) {
   <h2>Detalle de producto - {{prod.id}}</h2>
   <form class="product__form" [formGroup]="productForm">
-    <input type="text" formControlName="name" />
-    <input type="text" formControlName="marc" />
-    <textarea type="text" formControlName="description"></textarea>
-    <input type="text" formControlName="model" />
-    <input type="number" formControlName="stock" />
-    <input type="number" formControlName="price" />
-    <select formControlName="type">
-      <option value="moto">Moto</option>
-      <option value="accesorio">Accesorio</option>
-      <option value="respuesto">Repuesto</option>
-    </select>
+    <div class="product__form__column">
+      <div class="form-control">
+        <label for="input">Nombre</label>
+        <input type="text" formControlName="name" />
+      </div>
+      <div class="form-control">
+        <label for="input">Marca</label>
+        <input type="text" formControlName="marc" />
+      </div>
+      <div class="form-control">
+        <label for="input">Descripción</label>
+        <textarea type="text" formControlName="description"></textarea>
+      </div>
+      <div class="form-control">
+        <label for="input">Modelo</label>
+        <input type="text" formControlName="model" />
+      </div>
+      <div class="form-control">
+        <label for="input">Stock</label>
+        <input type="number" formControlName="stock" />
+      </div>
+      <div class="form-control">
+        <label for="input">Precio</label>
+        <input type="number" formControlName="price" />
+      </div>
+      <div class="form-control">
+        <label for="input">Tipo</label>
+        <select formControlName="type">
+          <option value="moto">Moto</option>
+          <option value="accesorio">Accesorio</option>
+          <option value="respuesto">Repuesto</option>
+        </select>
+      </div>
+    </div>
+    <div class="product__for__column">
+      <product-image title="Portada" formControlName="portrait" />
+      <product-image title="Miniatura" formControlName="miniature" />
+    </div>
+    <div>
+      <h2>Galeria</h2>
+      <button class="product__button" type="button" (click)="addGalleryImage()">
+        + Añadir imagen
+      </button>
+    </div>
+    <div class="product__form__galery">
+      @for (control of galeryControls; track $index){
+      <div class="form-control-inline">
+        <product-image
+          [title]="'Galería ' + ($index + 1)"
+          [formControl]="control" />
+        <button class="form-control-delete" type="button" (click)="removeGalleryImage($index)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="red"
+            class="bi bi-trash3-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+          </svg>
+        </button>
+      </div>
+      }
+    </div>
+    <button class="product__button" type="submit" (click)="onSubmit()">
+      Guardar cambios
+    </button>
   </form>
   }
 </div>

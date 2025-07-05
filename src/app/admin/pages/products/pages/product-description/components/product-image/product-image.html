@@ -1,0 +1,21 @@
+<h3>{{title()}}</h3>
+<div class="image-url-input">
+  @if (value) {
+  <div class="preview">
+    <img [src]="value" alt="Vista previa" />
+  </div>
+  }@else {
+  <div class="preview">
+    <img src="/img/moto-blank.jpg" alt="Vista previa" />
+  </div>
+  }
+  <label for="image-url">Enlace de imagen:</label>
+  <div class="input-group">
+    <input
+      id="image-url"
+      type="text"
+      [value]="value"
+      (input)="onInputChange($event)"
+      placeholder="https://example.com/image.jpg" />
+  </div>
+</div>

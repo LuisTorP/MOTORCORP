@@ -2,7 +2,6 @@ import {
   Component,
   inject,
   Input,
-  input,
   OnChanges,
   OnInit,
   SimpleChanges,
@@ -12,19 +11,15 @@ import {
   ProductType,
 } from '../../../../../client/pages/products/interfaces/product.interface';
 import { ProductService } from '../../../../../client/pages/products/services/product.service';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Paginator } from '../../../../components/paginator/paginator';
 import { QueryDocumentSnapshot } from 'firebase/firestore';
 import { APP_ROUTES } from '../../../../../routes.constant';
+import { ProductForm } from "./components/product-form/product-form";
 
 @Component({
   selector: 'app-product-list',
-  imports: [Paginator, RouterLink, RouterLinkActive],
+  imports: [Paginator, RouterLink, ProductForm],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
 })
@@ -37,6 +32,8 @@ export class ProductList implements OnInit, OnChanges {
   page = 1;
   isLastPage = false;
   lastDocs: (QueryDocumentSnapshot<Product> | undefined)[] = [];
+
+  showForm = false;
 
   private productService = inject(ProductService);
   private router = inject(Router);
@@ -51,30 +48,25 @@ export class ProductList implements OnInit, OnChanges {
       const search = params['search'] || '';
 
       if (search) {
-        // 1. Carga todos los productos (o por tipo)
         let allProducts: Product[] = [];
         if (type) {
-          // Si tienes muchos productos por tipo, podrías paginar aquí también
-          const result = await this.productService.getProducts(type, 1000); // Ajusta el límite si es necesario
+          const result = await this.productService.getProducts(type, 1000);
           allProducts = result.products;
         } else {
           const result = await this.productService.getProducts(undefined, 1000);
           allProducts = result.products;
         }
-        // 2. Filtra en memoria
-        const filtered = allProducts.filter((product) =>
+        const filtered = allProducts.filter(product =>
           product.nombre.toLowerCase().includes(search.trim().toLowerCase())
         );
         this.productService.products.set(filtered);
 
-        // 3. Desactiva paginación
         this.isLastPage = true;
         this.page = 1;
         this.lastDocs = [];
         return;
       }
 
-      // --- Paginación normal Firestore ---
       if (newPage > 1 && this.lastDocs.length < newPage - 1) {
         let lastDoc: QueryDocumentSnapshot<Product> | undefined =
           this.lastDocs[this.lastDocs.length - 1];
@@ -138,5 +130,14 @@ export class ProductList implements OnInit, OnChanges {
       queryParamsHandling: 'merge',
       replaceUrl: true,
     });
+  }
+
+  async onDeleteProduct(productId: string) {
+    try {
+      await this.productService.deleteProduct(productId);
+      location.reload();
+    } catch (error) {
+      console.error('Error al eliminar el producto:', error);
+    }
   }
 }

@@ -50,6 +50,24 @@
   &:hover {
     filter: brightness(1.25);
   }
+  &__admin {
+    padding: 0px 1rem;
+    background: #0e0b0a;
+    border-radius: 2rem;
+    border: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: filter ease 0.2s;
+
+    &:hover {
+      filter: brightness(1.25);
+    }
+  }
 }
 
 @media (max-width: 900px) {

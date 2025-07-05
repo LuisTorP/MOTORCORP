@@ -27,3 +27,16 @@ export const isNotLoggedInGuard: CanActivateFn = () => {
   }
   return true;
 };
+
+export const isAdminGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const authService = inject(AuthService);
+  const usuario = authService.user();
+
+  if (!usuario || usuario.rol !== 'admin') {
+    router.navigate([routes.client.home.root]);
+    return false;
+  }
+
+  return true;
+};

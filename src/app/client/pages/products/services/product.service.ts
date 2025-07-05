@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import {
   collection,
   CollectionReference,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -130,6 +131,11 @@ export class ProductService {
       },
       { merge: true }
     );
+  }
+
+  async deleteProduct(id: string): Promise<void> {
+    const prodRef = doc(this.firestore, 'productos', id);
+    await deleteDoc(prodRef);
   }
 
   async loadSeed() {

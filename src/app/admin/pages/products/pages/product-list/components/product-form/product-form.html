@@ -1,0 +1,96 @@
+<div class="overlay">
+  <form class="product" [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="form-close">
+      <svg
+        (click)="stateForm.emit(false)"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-x-circle"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+      </svg>
+    </div>
+
+    <div class="form-column">
+      <div class="form-control">
+        <label for="input">Nombre</label>
+        <input type="text" formControlName="name" />
+      </div>
+      <div class="form-control">
+        <label for="input">Marca</label>
+        <input type="text" formControlName="marc" />
+      </div>
+      <div class="form-control">
+        <label for="input">Descripción</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+      <div class="form-control">
+        <label for="input">Modelo</label>
+        <input type="text" formControlName="model" />
+      </div>
+      <div class="form-control">
+        <label for="input">Stock</label>
+        <input type="number" formControlName="stock" />
+      </div>
+      <div class="form-control">
+        <label for="input">Precio</label>
+        <input type="number" formControlName="price" />
+      </div>
+      <div class="form-control">
+        <label for="input">Tipo</label>
+        <select formControlName="type">
+          <option value="moto">Moto</option>
+          <option value="accesorio">Accesorio</option>
+          <option value="repuesto">Repuesto</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-column">
+      <div class="form-control">
+        <label for="input">Enlace de portada</label>
+        <input type="text" formControlName="portrait" />
+      </div>
+      <div class="form-control">
+        <label for="input">Enlace de miniatura</label>
+        <input type="text" formControlName="miniature" />
+      </div>
+
+      <div class="form-control">
+        <label for="input">Galería de imágenes</label>
+        <button
+          class="product__button"
+          type="button"
+          (click)="addGalleryImage()">
+          + Añadir imagen
+        </button>
+
+        @for (control of galeryControls; track $index){
+        <div class="form-control-inline">
+          <input
+            type="text"
+            [formControl]="control"
+            placeholder="Enlace {{ $index + 1 }}" />
+          <button
+            class="form-control-delete"
+            type="button"
+            (click)="removeGalleryImage($index)">
+            ✕
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="product__button" type="submit" (click)="addProduct()">
+        Guardar producto
+      </button>
+    </div>
+  </form>
+</div>

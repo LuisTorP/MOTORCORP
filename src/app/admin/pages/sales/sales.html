@@ -1,1 +1,54 @@
-<p>sales works!</p>
+<div class="sale">
+  <div class="sale__header">
+    <h2>Ventas</h2>
+  </div>
+  <div class="sale__search">
+    <input
+      #searchInput
+      type="text"
+      placeholder="Buscar compra por código"
+      [value]="search|| ''"
+      (input)="onSearchChange(searchInput.value)" />
+  </div>
+  <div class="sale__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Productos</th>
+          <th>Metodo de pago</th>
+          <th>Precio</th>
+          <th>Metodo de envio</th>
+          <th>Dirección</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sale of sales(); track $index) {
+        <tr>
+          <td>{{ sale.userId }}</td>
+          <td>
+            <ul>
+              @for (product of sale.productos ; track $index) {
+              <li>{{product.nombre}} - Cantidad: {{product.quantity}}</li>
+              }
+            </ul>
+          </td>
+          <td>Tarjeta de débito</td>
+          <td>s/. {{ sale.total }}</td>
+          <td>{{ sale.metodoPago.safeCode }}</td>
+          <td>
+            {{ sale.direccion?.departamento }} - {{sale.direccion?.provincia}} -
+            {{sale.direccion?.distrito}} - {{sale.direccion?.direccion}}
+          </td>
+          <td>{{sale.estado}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <paginator
+      [page]="page"
+      [isLastPage]="isLastPage"
+      (pageChange)="onPageChange($event)" />
+  </div>
+</div>

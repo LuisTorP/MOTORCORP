@@ -1,28 +1,33 @@
 .product {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  &__form {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 24px;
-    &__column {
-      display: grid;
-      gap: 24px;
-    }
-    &__galery {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+  background-color: white;
+  padding: 24px;
+  border-radius: 16px;
+  position: relative;
 
-      product-image {
-        width: 100%;
-      }
-    }
+  .form-column {
+    display: flex;
+    flex-direction: column;
   }
+
+  .form-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+  }
+
+  .form-actions {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+
   &__button {
-    padding: 0px 1rem;
+    padding: 0 1rem;
     background: #ea5b0c;
     border-radius: 2rem;
     border: 0;
@@ -51,27 +56,29 @@
     font-size: 0.95rem;
   }
 
-  input {
+  input,
+  select,
+  textarea {
     padding: 8px 12px;
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 1rem;
   }
+
   &-inline {
     display: flex;
     align-items: center;
     gap: 8px;
-    position: relative;
+    margin-top: 8px;
   }
+
   &-delete {
-    position: absolute;
-    top: 25px;
-    right: 4px;
     background: #f1f1f1;
     border: none;
-    padding: 8px;
+    padding: 6px 10px;
     cursor: pointer;
-    border-radius: 100px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-weight: bold;
+    color: #ea5b0c;
   }
 }
